@@ -1,0 +1,24 @@
+{
+  "name": "@pietile-native-kit/pietile-native-kit",
+  "version": "1.0.0",
+  "description": "Set of React Native components",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "~10.0.0",
+    "eslint": "~5.8.0",
+    "eslint-config-pietile": "~0.2.0",
+    "eslint-plugin-import": "~2.14.0",
+    "eslint-plugin-jsx-a11y": "~6.1.0",
+    "eslint-plugin-react": "~7.11.0",
+    "eslint-plugin-react-native": "~3.5.0",
+    "import-sort": "~5.2.0",
+    "import-sort-cli": "~5.2.0",
+    "import-sort-parser-babylon": "~5.2.0",
+    "import-sort-style-pietile": "~1.0.0",
+    "prettier": "~1.14.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
