@@ -1,0 +1,3 @@
+# PageSlider
+
+Simple page slider
