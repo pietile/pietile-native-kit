@@ -4,6 +4,14 @@ View that changes content gracefully
 
 <img src="https://media.giphy.com/media/1zgdmaNWIiMIJm9klY/giphy.gif" />
 
+## Install
+
+```sh
+yarn add @pietile-native-kit/fade-view
+or
+npm install --save @pietile-native-kit/fade-view
+```
+
 ## Code example
 
 ```jsx
