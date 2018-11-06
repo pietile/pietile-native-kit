@@ -1,4 +1,4 @@
-# Pietile native kit
+# Pietile Native Kit
 
 Set of React Native components
 
