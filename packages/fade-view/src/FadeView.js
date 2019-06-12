@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';
-
 import { Animated, Easing, ViewPropTypes } from 'react-native';
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
