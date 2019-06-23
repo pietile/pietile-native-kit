@@ -116,7 +116,6 @@ class ExpandableView extends Component {
         Animated.timing(this.state.opacity, {
           duration: COLLAPSE_DURATION,
           toValue: 0,
-          useNativeDriver: true,
         }),
       ]);
 
@@ -156,7 +155,6 @@ class ExpandableView extends Component {
         Animated.timing(this.state.opacity, {
           duration: EXPAND_DURATION,
           toValue: 1,
-          useNativeDriver: true,
         }),
       ]);
 
