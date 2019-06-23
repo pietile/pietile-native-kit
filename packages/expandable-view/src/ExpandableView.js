@@ -174,7 +174,7 @@ class ExpandableView extends Component {
   };
 
   render() {
-    const { children, contentStyle } = this.props;
+    const { children, contentStyle, style } = this.props;
     const { height, opacity, state } = this.state;
 
     if (state === STATE.COLLAPSED) {
@@ -182,7 +182,7 @@ class ExpandableView extends Component {
     }
 
     return (
-      <Animated.View style={[styles.container, { height }]}>
+      <Animated.View style={[styles.container, style, { height }]}>
         <Animated.View
           style={[state !== STATE.EXPANDED && styles.offscreen, { opacity }, contentStyle]}
           onLayout={this.onLayout}
@@ -196,8 +196,9 @@ class ExpandableView extends Component {
 
 ExpandableView.propTypes = {
   children: PropTypes.node.isRequired,
-  show: PropTypes.bool.isRequired,
   contentStyle: ViewPropTypes.style,
+  show: PropTypes.bool.isRequired,
+  style: ViewPropTypes.style,
 };
 
 const styles = StyleSheet.create({
