@@ -21,7 +21,14 @@
     "import-sort-style-pietile": "~1.0.0",
     "prettier": "~1.18.0"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "example"
+    ],
+    "nohoist": [
+      "pietile-native-kit-example",
+      "pietile-native-kit-example/**"
+    ]
+  }
 }

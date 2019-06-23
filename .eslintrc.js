@@ -6,8 +6,9 @@ module.exports = {
   },
   rules: {
     'jsx-a11y/anchor-is-valid': 'off',
+    'jsx-a11y/accessible-emoji': 'off',
     'no-use-before-define': 'off',
-    'react-native/no-color-literals': 'warn',
+    'react-native/no-color-literals': 'off',
     'react-native/no-inline-styles': 'warn',
     'react-native/no-unused-styles': 'warn',
     'react/destructuring-assignment': 'off',
