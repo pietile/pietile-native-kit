@@ -14,11 +14,6 @@ function KeyboardAwareSrollviewExample() {
       <Input keyboardType="numeric" />
       <Input />
       <Input keyboardType="numeric" />
-      <Input />
-      <Input keyboardType="numeric" />
-      <Input />
-      <Input keyboardType="numeric" />
-      <Input />
       <Input style={styles.lastInput} />
     </View>
   );

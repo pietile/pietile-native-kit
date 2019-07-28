@@ -122,7 +122,7 @@ class KeyboardAwareScrollView extends Component {
     }
 
     this._currentlyFocusedField = currentlyFocusedField;
-    this.scrollToFocusedInput(currentlyFocusedField);
+    this.scrollToInput(currentlyFocusedField);
   };
 
   onFocus = e => {
@@ -134,16 +134,16 @@ class KeyboardAwareScrollView extends Component {
       return;
     }
 
-    const currentlyFocusedField = TextInput.State.currentlyFocusedField();
-    if (this._currentlyFocusedField === currentlyFocusedField) {
+    const { target: input } = e.nativeEvent;
+    if (this._currentlyFocusedField === input) {
       return;
     }
 
-    this._currentlyFocusedField = currentlyFocusedField;
-    this.scrollToFocusedInput(currentlyFocusedField);
+    this._currentlyFocusedField = input;
+    this.scrollToInput(input);
   };
 
-  scrollToFocusedInput = async currentlyFocusedField => {
+  scrollToInput = async input => {
     if (!this._scrollView.current) {
       return;
     }
@@ -151,7 +151,7 @@ class KeyboardAwareScrollView extends Component {
     const innerViewNode = this._scrollView.current.getInnerViewNode();
 
     // Check if current focused TextInput is ancestor of ScrollView
-    const isAncestor = await viewIsDescendantOf(currentlyFocusedField, innerViewNode);
+    const isAncestor = await viewIsDescendantOf(input, innerViewNode);
     if (!isAncestor || !this._mounted) {
       return;
     }
@@ -169,10 +169,7 @@ class KeyboardAwareScrollView extends Component {
       try {
         const { extraHeight } = this.props;
 
-        const { top, height } = await measureLayout(
-          currentlyFocusedField,
-          findNodeHandle(innerViewNode),
-        );
+        const { top, height } = await measureLayout(input, findNodeHandle(innerViewNode));
 
         if (!this._mounted) {
           return;
@@ -271,7 +268,6 @@ KeyboardAwareScrollView.propTypes = {
   contentContainerStyleKeyboardShown: ViewPropTypes.style,
   disableAutoScroll: PropTypes.bool,
   extraHeight: PropTypes.number,
-  onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onScrollViewLayout: PropTypes.func,
   scrollViewContentContainerStyle: ViewPropTypes.style,
