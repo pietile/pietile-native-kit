@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useReducer, useRef, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';
@@ -9,10 +9,8 @@ const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 function FadeView({ children, data, duration, style }) {
   const lastData = useRef(data);
 
-  const lastChildren = useRef(children);
-  lastChildren.current = children;
-
-  const [childrenToRender, setChildrenToRender] = useState(() => ({ current: children }));
+  const [childrenToRender] = useState(() => ({ current: children }));
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
   const [opacity] = useState(() => new Animated.Value(1));
 
   const hideAnimationRunning = useRef(false);
@@ -31,7 +29,7 @@ function FadeView({ children, data, duration, style }) {
       }
 
       hideAnimationRunning.current = false;
-      setChildrenToRender({ current: lastChildren.current });
+      forceUpdate({});
 
       Animated.timing(opacity, {
         duration,
