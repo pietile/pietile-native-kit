@@ -8,8 +8,8 @@ const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
 function FadeView({ children, data, duration, style }) {
   const lastData = useRef(data);
+  const childrenToRender = useRef(children);
 
-  const [childrenToRender] = useState(() => ({ current: children }));
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   const [opacity] = useState(() => new Animated.Value(1));
 
