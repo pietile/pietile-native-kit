@@ -9,15 +9,15 @@ function KeyboardAwareSrollviewExample() {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>KeyboardAwareSrollview</Text>
+      <Input keyboardType="numeric" />
       <Input />
+      <Input keyboardType="numeric" />
       <Input />
+      <Input keyboardType="numeric" />
       <Input />
+      <Input keyboardType="numeric" />
       <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
+      <Input keyboardType="numeric" />
       <Input />
       <Input style={styles.lastInput} />
     </View>
