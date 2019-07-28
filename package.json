@@ -11,14 +11,14 @@
     "babel-eslint": "~10.0.0",
     "eslint": "~6.0.0",
     "eslint-config-pietile": "~0.2.0",
-    "eslint-plugin-import": "~2.17.0",
+    "eslint-plugin-import": "~2.18.0",
     "eslint-plugin-jsx-a11y": "~6.2.0",
-    "eslint-plugin-react": "~7.13.0",
+    "eslint-plugin-react": "~7.14.0",
     "eslint-plugin-react-native": "~3.7.0",
     "import-sort": "~6.0.0",
     "import-sort-cli": "~6.0.0",
     "import-sort-parser-babylon": "~6.0.0",
-    "import-sort-style-pietile": "~1.0.0",
+    "import-sort-style-pietile": "~1.1.0",
     "prettier": "~1.18.0"
   },
   "workspaces": {

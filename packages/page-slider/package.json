@@ -12,8 +12,8 @@
     "prop-types": "~15.7.0"
   },
   "devDependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.9"
+    "react": "16.8.6",
+    "react-native": "0.60.4"
   },
   "bugs": {
     "url": "https://github.com/pietile/pietile-native-kit/issues"
