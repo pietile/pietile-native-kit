@@ -34,8 +34,6 @@ class KeyboardAwareScrollView extends Component {
 
   _mounted = false;
 
-  _currentlyFocusedField = null;
-
   state = { paddingBottom: new Animated.Value(0), keyboardShown: false };
 
   componentDidMount() {
@@ -121,7 +119,6 @@ class KeyboardAwareScrollView extends Component {
       return;
     }
 
-    this._currentlyFocusedField = currentlyFocusedField;
     this.scrollToInput(currentlyFocusedField);
   };
 
@@ -134,13 +131,7 @@ class KeyboardAwareScrollView extends Component {
       return;
     }
 
-    const { target: input } = e.nativeEvent;
-    if (this._currentlyFocusedField === input) {
-      return;
-    }
-
-    this._currentlyFocusedField = input;
-    this.scrollToInput(input);
+    this.scrollToInput(e.nativeEvent.target);
   };
 
   scrollToInput = async input => {
