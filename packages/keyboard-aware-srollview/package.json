@@ -1,6 +1,6 @@
 {
   "name": "@pietile-native-kit/keyboard-aware-srollview",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ScrollView that moves child input just above the keyboard when later gets focus",
   "main": "src/index.js",
   "license": "MIT",
