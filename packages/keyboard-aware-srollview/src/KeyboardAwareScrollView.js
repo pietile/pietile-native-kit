@@ -143,14 +143,6 @@ class KeyboardAwareScrollView extends Component {
     this.scrollToFocusedInput(currentlyFocusedField);
   };
 
-  onBlur = e => {
-    if (this.props.onBlur) {
-      this.props.onBlur(e);
-    }
-
-    this._currentlyFocusedField = null;
-  };
-
   scrollToFocusedInput = async currentlyFocusedField => {
     if (!this._scrollView.current) {
       return;
@@ -252,7 +244,6 @@ class KeyboardAwareScrollView extends Component {
         {...props}
         keyboardDismissMode="interactive"
         onFocus={this.onFocus}
-        onBlur={this.onBlur}
         ref={this._scrollView}
       >
         <Animated.View
