@@ -10,6 +10,7 @@
   "dependencies": {
     "@pietile-native-kit/expandable-view": "~1.0.0",
     "@pietile-native-kit/fade-view": "~1.0.0",
+    "@pietile-native-kit/keyboard-aware-srollview": "~1.0.0",
     "@pietile-native-kit/page-slider": "~1.0.0",
     "react": "16.8.6",
     "react-native": "0.60.4"

@@ -34,6 +34,8 @@ class KeyboardAwareScrollView extends Component {
 
   _mounted = false;
 
+  _currentlyFocusedField = null;
+
   state = { paddingBottom: new Animated.Value(0), keyboardShown: false };
 
   componentDidMount() {
@@ -119,7 +121,34 @@ class KeyboardAwareScrollView extends Component {
       return;
     }
 
+    this._currentlyFocusedField = currentlyFocusedField;
     this.scrollToFocusedInput(currentlyFocusedField);
+  };
+
+  onFocus = e => {
+    if (this.props.onFocus) {
+      this.props.onFocus(e);
+    }
+
+    if (!this.state.keyboardShown) {
+      return;
+    }
+
+    const currentlyFocusedField = TextInput.State.currentlyFocusedField();
+    if (this._currentlyFocusedField === currentlyFocusedField) {
+      return;
+    }
+
+    this._currentlyFocusedField = currentlyFocusedField;
+    this.scrollToFocusedInput(currentlyFocusedField);
+  };
+
+  onBlur = e => {
+    if (this.props.onBlur) {
+      this.props.onBlur(e);
+    }
+
+    this._currentlyFocusedField = null;
   };
 
   scrollToFocusedInput = async currentlyFocusedField => {
@@ -141,6 +170,10 @@ class KeyboardAwareScrollView extends Component {
     }
 
     this._scrollToFocusedInputTimeout = setTimeout(async () => {
+      if (!this._mounted) {
+        return;
+      }
+
       try {
         const { extraHeight } = this.props;
 
@@ -162,9 +195,9 @@ class KeyboardAwareScrollView extends Component {
         const scrollDistance = this._scrollViewPosY - innerViewPositionY;
 
         let scrollTo;
-        if (top - extraHeight - scrollDistance < 0) {
+        if (top - extraHeight - scrollDistance < height) {
           // Input above the top
-          scrollTo = top - extraHeight;
+          scrollTo = top - extraHeight - height;
         } else if (top + height + extraHeight - scrollDistance > this._keyboardPosY) {
           // Input below the bottom
           scrollTo = top + extraHeight + height - this._keyboardPosY;
@@ -217,8 +250,10 @@ class KeyboardAwareScrollView extends Component {
       <ScrollView
         contentContainerStyle={[styles.contentContainer, scrollViewContentContainerStyle]}
         {...props}
-        ref={this._scrollView}
         keyboardDismissMode="interactive"
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
+        ref={this._scrollView}
       >
         <Animated.View
           style={[
@@ -245,6 +280,8 @@ KeyboardAwareScrollView.propTypes = {
   contentContainerStyleKeyboardShown: ViewPropTypes.style,
   disableAutoScroll: PropTypes.bool,
   extraHeight: PropTypes.number,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
   onScrollViewLayout: PropTypes.func,
   scrollViewContentContainerStyle: ViewPropTypes.style,
 };
