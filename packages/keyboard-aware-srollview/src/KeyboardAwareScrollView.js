@@ -119,10 +119,22 @@ class KeyboardAwareScrollView extends Component {
       return;
     }
 
-    this.scrollToFocusedInput(currentlyFocusedField);
+    this.scrollToInput(currentlyFocusedField);
   };
 
-  scrollToFocusedInput = async currentlyFocusedField => {
+  onFocus = e => {
+    if (this.props.onFocus) {
+      this.props.onFocus(e);
+    }
+
+    if (!this.state.keyboardShown) {
+      return;
+    }
+
+    this.scrollToInput(e.nativeEvent.target);
+  };
+
+  scrollToInput = async input => {
     if (!this._scrollView.current) {
       return;
     }
@@ -130,7 +142,7 @@ class KeyboardAwareScrollView extends Component {
     const innerViewNode = this._scrollView.current.getInnerViewNode();
 
     // Check if current focused TextInput is ancestor of ScrollView
-    const isAncestor = await viewIsDescendantOf(currentlyFocusedField, innerViewNode);
+    const isAncestor = await viewIsDescendantOf(input, innerViewNode);
     if (!isAncestor || !this._mounted) {
       return;
     }
@@ -141,13 +153,14 @@ class KeyboardAwareScrollView extends Component {
     }
 
     this._scrollToFocusedInputTimeout = setTimeout(async () => {
+      if (!this._mounted) {
+        return;
+      }
+
       try {
         const { extraHeight } = this.props;
 
-        const { top, height } = await measureLayout(
-          currentlyFocusedField,
-          findNodeHandle(innerViewNode),
-        );
+        const { top, height } = await measureLayout(input, findNodeHandle(innerViewNode));
 
         if (!this._mounted) {
           return;
@@ -217,8 +230,9 @@ class KeyboardAwareScrollView extends Component {
       <ScrollView
         contentContainerStyle={[styles.contentContainer, scrollViewContentContainerStyle]}
         {...props}
-        ref={this._scrollView}
         keyboardDismissMode="interactive"
+        onFocus={this.onFocus}
+        ref={this._scrollView}
       >
         <Animated.View
           style={[
@@ -245,6 +259,7 @@ KeyboardAwareScrollView.propTypes = {
   contentContainerStyleKeyboardShown: ViewPropTypes.style,
   disableAutoScroll: PropTypes.bool,
   extraHeight: PropTypes.number,
+  onFocus: PropTypes.func,
   onScrollViewLayout: PropTypes.func,
   scrollViewContentContainerStyle: ViewPropTypes.style,
 };

@@ -8,19 +8,23 @@
 
 import React from 'react';
 
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-srollview';
 
 import ExpandableViewExample from './src/ExpandableViewExample';
 import FadeViewExample from './src/FadeViewExample';
+import KeyboardAwareSrollviewExample from './src/KeyboardAwareSrollviewExample';
 import PageSliderExample from './src/PageSliderExample';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAwareScrollView contentInsetAdjustmentBehavior="automatic" style={styles.container}>
       <FadeViewExample style={[styles.example, styles.fadeView]} />
       <PageSliderExample style={styles.example} />
       <ExpandableViewExample />
-    </SafeAreaView>
+      <KeyboardAwareSrollviewExample />
+    </KeyboardAwareScrollView>
   );
 }
 
