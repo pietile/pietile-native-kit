@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useRef, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';
@@ -6,33 +6,22 @@ import { Animated, Easing, ViewPropTypes } from 'react-native';
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
-// Fade animate on data change
-class FadeView extends Component {
-  constructor(props) {
-    super(props);
+function FadeView({ children, data, duration, style }) {
+  const lastData = useRef(data);
 
-    const { children } = props;
-    this.state = {
-      opacity: new Animated.Value(1),
-      children,
-    };
-  }
+  const lastChildren = useRef(children);
+  lastChildren.current = children;
 
-  componentWillReceiveProps({ children: newChildren, data: newData, duration }) {
-    const { data, children } = this.props;
+  const [childrenToRender, setChildrenToRender] = useState(() => ({ current: children }));
+  const [opacity] = useState(() => new Animated.Value(1));
 
-    const dataIsEqual = isEqual(data, newData);
+  const hideAnimationRunning = useRef(false);
 
-    if (dataIsEqual && !isEqual(children, newChildren)) {
-      this.setState({ children: newChildren });
-      return;
-    }
+  if (!isEqual(lastData.current, data)) {
+    lastData.current = data;
+    hideAnimationRunning.current = true;
 
-    if (dataIsEqual) {
-      return;
-    }
-
-    Animated.timing(this.state.opacity, {
+    Animated.timing(opacity, {
       duration,
       easing: EASING,
       toValue: 0,
@@ -41,30 +30,27 @@ class FadeView extends Component {
         return;
       }
 
-      this.setState({ children: newChildren });
-      Animated.timing(this.state.opacity, {
+      hideAnimationRunning.current = false;
+      setChildrenToRender({ current: lastChildren.current });
+
+      Animated.timing(opacity, {
         duration,
         easing: EASING,
         toValue: 1,
       }).start();
     });
+  } else if (!hideAnimationRunning.current) {
+    childrenToRender.current = children;
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state !== nextState || this.props.style !== nextProps.style;
-  }
-
-  render() {
-    const { opacity, children } = this.state;
-    return <Animated.View style={[this.props.style, { opacity }]}>{children}</Animated.View>;
-  }
+  return <Animated.View style={[style, { opacity }]}>{childrenToRender.current}</Animated.View>;
 }
 
 FadeView.propTypes = {
   children: PropTypes.node,
   data: PropTypes.any,
-  style: ViewPropTypes.style,
   duration: PropTypes.number,
+  style: ViewPropTypes.style,
 };
 
 FadeView.defaultProps = {
