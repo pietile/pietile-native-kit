@@ -4,31 +4,34 @@ import PropTypes from 'prop-types';
 import isEqual from 'react-fast-compare';
 import { Animated, Easing, ViewPropTypes } from 'react-native';
 
+import { useIsMounted } from './useIsMounted';
+
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
 function FadeView({ children, data, duration, style }) {
-  const lastData = useRef(data);
-  const childrenToRender = useRef(children);
+  const isMounted = useIsMounted();
 
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
+  const prevData = useRef(data);
+  const currentChildren = useRef(children);
+  const hiding = useRef(false);
+
   const [opacity] = useState(() => new Animated.Value(1));
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
 
-  const hideAnimationRunning = useRef(false);
-
-  if (!isEqual(lastData.current, data)) {
-    lastData.current = data;
-    hideAnimationRunning.current = true;
+  if (!isEqual(prevData.current, data)) {
+    prevData.current = data;
+    hiding.current = true;
 
     Animated.timing(opacity, {
       duration,
       easing: EASING,
       toValue: 0,
     }).start(({ finished }) => {
-      if (!finished) {
+      if (!finished || !isMounted()) {
         return;
       }
 
-      hideAnimationRunning.current = false;
+      hiding.current = false;
       forceUpdate({});
 
       Animated.timing(opacity, {
@@ -37,11 +40,11 @@ function FadeView({ children, data, duration, style }) {
         toValue: 1,
       }).start();
     });
-  } else if (!hideAnimationRunning.current) {
-    childrenToRender.current = children;
+  } else if (!hiding.current) {
+    currentChildren.current = children;
   }
 
-  return <Animated.View style={[style, { opacity }]}>{childrenToRender.current}</Animated.View>;
+  return <Animated.View style={[style, { opacity }]}>{currentChildren.current}</Animated.View>;
 }
 
 FadeView.propTypes = {
