@@ -110,10 +110,6 @@ class KeyboardAwareScrollView extends Component {
 
     this.setState({ keyboardShown: true });
 
-    if (this.props.disableAutoScroll) {
-      return;
-    }
-
     const currentlyFocusedField = TextInput.State.currentlyFocusedField();
     if (!currentlyFocusedField) {
       return;
@@ -257,10 +253,8 @@ KeyboardAwareScrollView.propTypes = {
   children: PropTypes.node,
   contentContainerStyle: ViewPropTypes.style,
   contentContainerStyleKeyboardShown: ViewPropTypes.style,
-  disableAutoScroll: PropTypes.bool,
   extraHeight: PropTypes.number,
   onFocus: PropTypes.func,
-  onScrollViewLayout: PropTypes.func,
   scrollViewContentContainerStyle: ViewPropTypes.style,
 };
 

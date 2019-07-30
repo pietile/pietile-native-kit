@@ -43,14 +43,13 @@ function Screen() {
 
 ### Properties
 
-| name                               | description                                                                                                |    type | default |
-| :--------------------------------- | :--------------------------------------------------------------------------------------------------------- | ------: | :------ |
-| children                           | Content                                                                                                    |    Node | -       |
-| contentContainerStyle              | Style of container that wraps children and used to adjust bottom padding to keyboard                       |   style | -       |
-| contentContainerStyleKeyboardShown | Style that applied to contentContainerStyle when keyboard is shown                                         |   style | -       |
-| disableAutoScroll                  | Disable scrolling to focused input                                                                         | boolean | -       |
-| extraHeight                        | Additional height between keyboard and focused input                                                       |  number | 24      |
-| scrollViewContentContainerStyle    | See [contentContainerStyle](https://facebook.github.io/react-native/docs/scrollview#contentcontainerstyle) |   style | -       |
+| name                               | description                                                                                                |   type | default |
+| :--------------------------------- | :--------------------------------------------------------------------------------------------------------- | -----: | :------ |
+| children                           | Content                                                                                                    |   Node | -       |
+| contentContainerStyle              | Style of container that wraps children and used to adjust bottom padding to keyboard                       |  style | -       |
+| contentContainerStyleKeyboardShown | Style that applied to contentContainerStyle when keyboard is shown                                         |  style | -       |
+| extraHeight                        | Additional height between keyboard and focused input                                                       | number | 24      |
+| scrollViewContentContainerStyle    | See [contentContainerStyle](https://facebook.github.io/react-native/docs/scrollview#contentcontainerstyle) |  style | -       |
 
 ### Methods
 
