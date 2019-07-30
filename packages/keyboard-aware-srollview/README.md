@@ -16,6 +16,20 @@ Following focused input when keyboaed is already open is also supported. Interna
 - Works both on iOS and Android
 - Small and simple code
 
+# Installation
+
+Using yarn
+
+```bash
+yarn add @pietile-native-kit/keyboard-aware-srollview
+```
+
+or using npm
+
+```bash
+npm install -S @pietile-native-kit/keyboard-aware-srollview
+```
+
 ## Usage
 
 Just put the content with inputs in `KeyboardAwareScrollView` and that's it.
