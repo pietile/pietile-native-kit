@@ -18,8 +18,7 @@ Following focused input when keyboaed is already open is also supported. Interna
 
 Just put the content with inputs in `KeyboardAwareScrollView` and that's it.
 
-List of spesific `KeyboardAwareScrollView` props and methods is availble
-[below](https://github.com/pietile/pietile-native-kit/tree/master/packages/keyboard-aware-srollview#api).
+List of specific `KeyboardAwareScrollView` props and methods is available [below](#api).
 Everything else is passing to underlying [ScrollView](https://facebook.github.io/react-native/docs/scrollview).
 
 ## Example
@@ -55,9 +54,9 @@ function Screen() {
 
 ### Methods
 
-| name                 | description               |
-| :------------------- | :------------------------ |
-| scrollToInput(input) | Scroll to specified input |
+| name                 | description     |
+| :------------------- | :-------------- |
+| scrollToInput(input) | Scroll to input |
 
 ## Acknowledge
 
