@@ -4,6 +4,24 @@
   "description": "Simple page slider",
   "main": "src/index.js",
   "license": "MIT",
+  "keywords": [
+    "react-native",
+    "slider",
+    "swiper",
+    "gallery"
+  ],
+  "contributors": [
+    {
+      "name": "Vladislav Shabanov",
+      "email": "vshabanov88@gmail.com",
+      "url": "https://github.com/vshab"
+    },
+    {
+      "name": "Maksim Milyutin",
+      "email": "mmxckk@gmail.com",
+      "url": "https://github.com/mxck"
+    }
+  ],
   "peerDependencies": {
     "react": ">= 16.3.0",
     "react-native": ">= 0.54.0"

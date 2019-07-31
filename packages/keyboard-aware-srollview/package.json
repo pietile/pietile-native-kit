@@ -9,6 +9,18 @@
     "keyboard-aware",
     "keyboardavoid"
   ],
+  "contributors": [
+    {
+      "name": "Vladislav Shabanov",
+      "email": "vshabanov88@gmail.com",
+      "url": "https://github.com/vshab"
+    },
+    {
+      "name": "Maksim Milyutin",
+      "email": "mmxckk@gmail.com",
+      "url": "https://github.com/mxck"
+    }
+  ],
   "main": "src/index.js",
   "license": "MIT",
   "peerDependencies": {
