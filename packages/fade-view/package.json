@@ -2,6 +2,11 @@
   "name": "@pietile-native-kit/fade-view",
   "version": "2.0.0",
   "description": "View that changes content gracefully",
+  "keywords": [
+    "react-native",
+    "fadein",
+    "fadeout"
+  ],
   "main": "src/index.js",
   "license": "MIT",
   "peerDependencies": {

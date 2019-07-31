@@ -2,6 +2,11 @@
   "name": "@pietile-native-kit/expandable-view",
   "version": "1.0.0",
   "description": "View that changes its height with nice animation",
+  "keywords": [
+    "react-native",
+    "expandable",
+    "accordion"
+  ],
   "main": "src/index.js",
   "license": "MIT",
   "peerDependencies": {
