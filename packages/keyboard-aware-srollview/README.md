@@ -16,7 +16,7 @@ Following focused input when keyboaed is already open is also supported. Interna
 - Works both on iOS and Android
 - Small and simple code
 
-# Installation
+## Installation
 
 Using yarn
 
