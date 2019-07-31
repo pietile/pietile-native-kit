@@ -1,4 +1,4 @@
-# Pietile Native Kit
+# 🥧 Pietile Native Kit
 
 Set of React Native components that are useful for building various types of UI elements. The detailed
 description is available inside of each package directory.
