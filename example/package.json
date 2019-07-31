@@ -8,10 +8,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@pietile-native-kit/expandable-view": "~1.0.0",
-    "@pietile-native-kit/fade-view": "~2.0.0",
-    "@pietile-native-kit/keyboard-aware-srollview": "~1.1.0",
-    "@pietile-native-kit/page-slider": "~1.0.0",
+    "@pietile-native-kit/expandable-view": "*",
+    "@pietile-native-kit/fade-view": "*",
+    "@pietile-native-kit/keyboard-aware-srollview": "*",
+    "@pietile-native-kit/page-slider": "*",
     "react": "16.8.6",
     "react-native": "0.60.4"
   },
