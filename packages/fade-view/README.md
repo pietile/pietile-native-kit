@@ -1,21 +1,37 @@
 # FadeView
 
-View that changes content gracefully
+Changes content with _FadeOut-FadeIn_ animation. `FadeView` uses `data` prop to know when start
+the transition. Usefull in situations when you want to change content smoothly, implementing tabs
+content for example.
 
 <img src="https://media.giphy.com/media/1zgdmaNWIiMIJm9klY/giphy.gif" />
 
-## Install
+## Installation
+
+Using yarn
 
 ```sh
 yarn add @pietile-native-kit/fade-view
-or
-npm install --save @pietile-native-kit/fade-view
 ```
+
+or using npm
+
+```sh
+npm install -S @pietile-native-kit/fade-view
+```
+
+## Usage
+
+Wrap the content in `FadeView` and set `data` to value that controls content. Every time data
+changes `FadeView` will rember children, play _FadeOut_ animation and then _FadeIn_ with curent children
+already. So it's important to notice that `FadeView` passthrogh children all the time except when
+playing _FadeOut_.
 
 ## Code example
 
 ```jsx
 import React, { Component } from 'react';
+
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import FadeView from '@pietile-native-kit/fade-view';
 
@@ -57,3 +73,18 @@ const styles = StyleSheet.create({
 
 export default FadeViewExample;
 ```
+
+## API
+
+### Properties
+
+| name     | description                                                     |   type | default |
+| :------- | :-------------------------------------------------------------- | -----: | :------ |
+| children | Content                                                         |   Node | -       |
+| data     | Marker property for telling the FadeView to do _FadeOut-FadeIn_ |    any | -       |
+| duration | Hide and show animations duration                               | number | 150     |
+| style    | Style of component                                              |  style | -       |
+
+## License
+
+Pietile FadeView is MIT License.
