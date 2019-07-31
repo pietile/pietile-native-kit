@@ -1,33 +1,54 @@
 import React, { useState } from 'react';
 
 import PageSlider from '@pietile-native-kit/page-slider';
-import { StyleSheet, Text, View, ViewPropTypes } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ViewPropTypes } from 'react-native';
 
 export default function PageSliderExample({ style }) {
-  const [, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const [selectedPage, setSelectedPage] = useState(0);
 
   return (
-    <PageSlider
-      style={[styles.slider, style]}
-      mode="card"
-      selectedPage={selectedPage}
-      onCurrentPageChange={setCurrentPage}
-      onSelectedPageChange={setSelectedPage}
-    >
-      <View style={[styles.page, { backgroundColor: 'red' }]}>
-        <Text style={styles.text}>1</Text>
+    <View style={style}>
+      <PageSlider
+        mode="card"
+        selectedPage={selectedPage}
+        onCurrentPageChange={setCurrentPage}
+        onSelectedPageChange={setSelectedPage}
+      >
+        <View style={[styles.page, { backgroundColor: 'red' }]}>
+          <Text style={styles.text}>1</Text>
+        </View>
+        <View style={[styles.page, { backgroundColor: 'orange' }]}>
+          <Text style={styles.text}>2</Text>
+        </View>
+        <View style={[styles.page, { backgroundColor: 'yellow' }]}>
+          <Text style={styles.text}>3</Text>
+        </View>
+        <View style={[styles.page, { backgroundColor: 'green' }]}>
+          <Text style={styles.text}>4</Text>
+        </View>
+      </PageSlider>
+
+      <View style={styles.controls}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            setSelectedPage(Math.max(selectedPage - 1, 0));
+          }}
+        >
+          <Text>Left</Text>
+        </TouchableOpacity>
+        <Text>{currentPage}</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            setSelectedPage(Math.min(3, selectedPage + 1));
+          }}
+        >
+          <Text>Right</Text>
+        </TouchableOpacity>
       </View>
-      <View style={[styles.page, { backgroundColor: 'orange' }]}>
-        <Text style={styles.text}>2</Text>
-      </View>
-      <View style={[styles.page, { backgroundColor: 'yellow' }]}>
-        <Text style={styles.text}>3</Text>
-      </View>
-      <View style={[styles.page, { backgroundColor: 'green' }]}>
-        <Text style={styles.text}>4</Text>
-      </View>
-    </PageSlider>
+    </View>
   );
 }
 
@@ -36,9 +57,6 @@ PageSliderExample.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  slider: {
-    flexGrow: 0,
-  },
   page: {
     alignItems: 'center',
     height: 128,
@@ -47,5 +65,13 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 32,
+  },
+  controls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  button: {
+    padding: 8,
   },
 });

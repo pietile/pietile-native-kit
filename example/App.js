@@ -22,7 +22,7 @@ export default function App() {
     <KeyboardAwareScrollView contentInsetAdjustmentBehavior="automatic" style={styles.container}>
       <FadeViewExample style={[styles.example, styles.fadeView]} />
       <PageSliderExample style={styles.example} />
-      <ExpandableViewExample />
+      <ExpandableViewExample style={styles.example} />
       <KeyboardAwareSrollviewExample />
     </KeyboardAwareScrollView>
   );
