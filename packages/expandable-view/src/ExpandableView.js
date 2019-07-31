@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-import isEqual from 'react-fast-compare';
 import { Animated, StyleSheet, ViewPropTypes } from 'react-native';
 
 const COLLAPSE_DURATION = 250;
@@ -41,38 +40,20 @@ class ExpandableView extends Component {
     this.animation = null;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.show && nextProps.show) {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.show && this.props.show) {
       if (this.state.state === STATE.COLLAPSING) {
         // Already in transition state. Interrupt current animation and go opposite way.
         this._expand();
+
         return;
       }
 
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ state: STATE.START_EXPANDING });
-    } else if (this.props.show && !nextProps.show) {
+    } else if (prevProps.show && !this.props.show) {
       this._collapse();
     }
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    // Rerender if any of subelements has changed
-    if (!isEqual(this.props.children, nextProps.children)) {
-      return true;
-    }
-
-    // Rerender only if COLLAPSED/EXPANDED state transition.
-    if (
-      this.state.state !== nextState.state &&
-      (this.state.state === STATE.COLLAPSED ||
-        this.state.state === STATE.EXPANDED ||
-        nextState.state === STATE.COLLAPSED ||
-        nextState.state === STATE.EXPANDED)
-    ) {
-      return true;
-    }
-
-    return false;
   }
 
   onLayout = e => {

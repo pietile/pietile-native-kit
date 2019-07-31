@@ -22,36 +22,15 @@ class PageSlider extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const currentPage = this._getCurrentPage();
 
     if (
-      this.props.selectedPage !== nextProps.selectedPage &&
-      nextProps.selectedPage !== currentPage
+      prevProps.selectedPage !== this.props.selectedPage &&
+      this.props.selectedPage !== currentPage
     ) {
-      this._scrollToPage(nextProps.selectedPage);
+      this._scrollToPage(this.props.selectedPage);
     }
-  }
-
-  shouldComponentUpdate(nextProps) {
-    const children = React.Children.toArray(this.props.children);
-    const nextChildren = React.Children.toArray(nextProps.children);
-
-    if (children.length !== nextChildren.length) {
-      return true;
-    }
-
-    for (let i = 0; i < children.length; ++i) {
-      if (children[i].key !== nextChildren[i].key) {
-        return true;
-      }
-    }
-
-    if (this.props.extraData !== nextProps.extraData) {
-      return true;
-    }
-
-    return false;
   }
 
   onContentSizeChange = (width, height) => {
@@ -157,6 +136,7 @@ class PageSlider extends Component {
       }
 
       return (
+        // eslint-disable-next-line react/no-array-index-key
         <View key={i} style={pageStyle}>
           {page}
         </View>
@@ -186,7 +166,6 @@ class PageSlider extends Component {
 
 PageSlider.propTypes = {
   children: PropTypes.node,
-  extraData: PropTypes.any,
   mode: PropTypes.string,
   onCurrentPageChange: PropTypes.func.isRequired,
   onSelectedPageChange: PropTypes.func.isRequired,

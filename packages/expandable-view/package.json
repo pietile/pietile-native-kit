@@ -14,8 +14,7 @@
     "react-native": ">= 0.54.0"
   },
   "dependencies": {
-    "prop-types": "~15.7.0",
-    "react-fast-compare": "~2.0.0"
+    "prop-types": "~15.7.0"
   },
   "devDependencies": {
     "react": "16.8.6",
