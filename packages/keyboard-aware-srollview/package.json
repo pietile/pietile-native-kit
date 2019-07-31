@@ -34,6 +34,7 @@
     "react": "16.8.6",
     "react-native": "0.60.4"
   },
+  "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/keyboard-aware-srollview",
   "bugs": {
     "url": "https://github.com/pietile/pietile-native-kit/issues"
   },
