@@ -23,7 +23,7 @@ npm install -S @pietile-native-kit/fade-view
 ## Usage
 
 Wrap the content in `FadeView` and set `data` to value that controls content. Every time data
-changes `FadeView` will remeber children, play _FadeOut_ animation and then _FadeIn_ with current children
+changes `FadeView` will remember children, play _FadeOut_ animation and then _FadeIn_ with current children
 already. So it's important to notice that `FadeView` passthrough children all the time except when
 playing _FadeOut_.
 

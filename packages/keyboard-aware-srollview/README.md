@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@pietile-native-kit/keyboard-aware-srollview.svg?color=%2356C838)](https://www.npmjs.com/package/@pietile-native-kit/keyboard-aware-srollview)
 
 Solves the very [common](https://www.reddit.com/r/reactnative/comments/azuy4v/were_the_react_native_team_aua/eiaa8vs/)
-React Native problem of software keyboard popping over focused text input and tries to do it accurate and smooth(even on Android).
+React Native problem of software keyboard popping over focused text input and tries to do it accurate and smooth (even on Android).
 Following focused input when keyboaed is already open is also supported. Internally KeyboardAwareScrollView uses
 [ScrollView](https://facebook.github.io/react-native/docs/scrollview),
 [UIManager](https://facebook.github.io/react-native/docs/direct-manipulation#other-native-methods) and
@@ -45,7 +45,7 @@ import React from 'react';
 import { TextInput, Text } from 'react-native';
 import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-srollview';
 
-function Screen() {
+function KeyboardAwareScrollViewExample() {
   return (
     <KeyboardAwareScrollView style={{ flex: 1 }}>
       <Text>KeyboardAwareSrollview</Text>
