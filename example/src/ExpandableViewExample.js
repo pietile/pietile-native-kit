@@ -13,9 +13,9 @@ export default function ExpandableViewExample({ style }) {
   return (
     <View style={style}>
       <TouchableHighlight style={styles.touchable} underlayColor="#2286c3" onPress={onPress}>
-        <Text style={styles.text}>Toggle</Text>
+        <Text style={styles.text}>Press me</Text>
       </TouchableHighlight>
-      <ExpandableView style={style} show={show}>
+      <ExpandableView show={show}>
         <View style={styles.content}>
           <Text style={styles.mushroom}>🍄🍄🍄</Text>
         </View>

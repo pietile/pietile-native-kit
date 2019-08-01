@@ -16,16 +16,16 @@ export default function PageSliderExample({ style }) {
         onSelectedPageChange={setSelectedPage}
       >
         <View style={[styles.page, { backgroundColor: 'red' }]}>
-          <Text style={styles.text}>1</Text>
+          <Text style={styles.text}>{'🐱'}</Text>
         </View>
         <View style={[styles.page, { backgroundColor: 'orange' }]}>
-          <Text style={styles.text}>2</Text>
+          <Text style={styles.text}>{'🐶'}</Text>
         </View>
         <View style={[styles.page, { backgroundColor: 'yellow' }]}>
-          <Text style={styles.text}>3</Text>
+          <Text style={styles.text}>{'🦖'}</Text>
         </View>
         <View style={[styles.page, { backgroundColor: 'green' }]}>
-          <Text style={styles.text}>4</Text>
+          <Text style={styles.text}>{'🐟'}</Text>
         </View>
       </PageSlider>
 
