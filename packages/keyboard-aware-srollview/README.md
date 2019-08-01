@@ -73,6 +73,26 @@ function KeyboardAwareScrollViewExample() {
 | :------------------- | :-------------- |
 | scrollToInput(input) | Scroll to input |
 
+## How to use with FlatList or SectionList? (or other VirtualizedList based components)
+
+Just pass `renderScrollComponent` props to list like below in example.
+
+```jsx
+import React from 'react';
+
+import { FlatList } from 'react-native';
+import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-srollview';
+
+function KeyboardAwareFlatList({ ...props }) {
+  return (
+    <FlatList
+      {...props}
+      renderScrollComponent={scrollProps => <KeyboardAwareScrollView {...scrollProps} />}
+    />
+  );
+}
+```
+
 ## Acknowledge
 
 Inspired by [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) and [KeyboardAvoidingView](https://facebook.github.io/react-native/docs/keyboardavoidingview)
