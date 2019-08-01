@@ -4,6 +4,8 @@ Manages content height gracefully allowing to alternate betweeen two states: exp
 ExpandableView doesn't require setting content height explicitly and measures it automatically.
 Useful for building accordion-like components.
 
+<img src="https://media.giphy.com/media/ejxlyN0ZkRTbgA8g81/giphy.gif" />
+
 ## Installation
 
 Using yarn

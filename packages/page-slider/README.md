@@ -4,6 +4,8 @@ Helps to implement swipeable pages. `PageSlider` is controlled with `selectedPag
 can work in two modes: `page` when page occupies whole width of the screen and `card` when
 adjacent pages are visible at sides.
 
+<img src="https://media.giphy.com/media/IgX3ycAhBlONUdl9zd/giphy.gif" />
+
 ## Installation
 
 Using yarn
