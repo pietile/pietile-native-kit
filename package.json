@@ -8,13 +8,9 @@
     "prettify": "import-sort --write 'packages/*/src/**/*.js' && prettier --write 'packages/*/src/**/*.js' && eslint 'packages/*/src/**/*.js'"
   },
   "devDependencies": {
-    "babel-eslint": "~10.0.0",
-    "eslint": "~6.0.0",
-    "eslint-config-pietile": "~0.2.0",
-    "eslint-plugin-import": "~2.18.0",
-    "eslint-plugin-jsx-a11y": "~6.2.0",
-    "eslint-plugin-react": "~7.14.0",
-    "eslint-plugin-react-native": "~3.7.0",
+    "@react-native-community/eslint-config": "~0.0.0",
+    "eslint": "~6.1.0",
+    "eslint-plugin-prettier": "~3.1.0",
     "import-sort": "~6.0.0",
     "import-sort-cli": "~6.0.0",
     "import-sort-parser-babylon": "~6.0.0",
