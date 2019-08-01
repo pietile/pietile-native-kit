@@ -4,7 +4,7 @@
 
 Solves the very [common](https://www.reddit.com/r/reactnative/comments/azuy4v/were_the_react_native_team_aua/eiaa8vs/)
 React Native problem of software keyboard popping over focused text input and tries to do it accurate and smooth(even on Android).
-Following focused input when keyboaed is already open is also supported. Internaly Pietile KeyboardAwareScrollView uses
+Following focused input when keyboaed is already open is also supported. Internally KeyboardAwareScrollView uses
 [ScrollView](https://facebook.github.io/react-native/docs/scrollview),
 [UIManager](https://facebook.github.io/react-native/docs/direct-manipulation#other-native-methods) and
 [Animated](https://facebook.github.io/react-native/docs/animations) to position an input in the field of view.

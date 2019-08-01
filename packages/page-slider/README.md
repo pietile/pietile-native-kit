@@ -1,6 +1,6 @@
 # PageSlider
 
-Helps implementing swipable pages. `PageSlider` is controlled wtih `selectedPage` prop compnent and
+Helps to implement swipeable pages. `PageSlider` is controlled with `selectedPage` prop compnent and
 can work in two modes: `page` when page occupies whole width of the screen and `card` when
 adjacent pages are visible at sides.
 
@@ -23,7 +23,7 @@ npm install -S @pietile-native-kit/page-slider
 `PageSlider` should occupy whole width of the screen. Each element inside will be wrapped
 with a view and you can safely use all available space in it. `PageSlider` is controlled so you should
 pass at least `selectedPage` and implement `onSelectedPageChange`. There is also optional `onCurrentPageChange`
-callback that fires currently active page (for example while the page is beign dragged). By default
+callback that fires currently active page (for example while the page is being dragged). By default
 `PageSlider` works in `page` mode.
 
 ## Example
@@ -73,17 +73,17 @@ const styles = StyleSheet.create({
 
 ### Properties
 
-| name                   | description                                 |     type | default |
-| :--------------------- | :------------------------------------------ | -------: | :------ |
-| children               | Content                                     |     Node | -       |
-| mode                   | "page" or "card"                            |   string | page    |
-| contentPaddingVertical | Vertical padding of content container       |   number | -       |
-| pageMargin             | Space between pages                         |   number | 8       |
-| peek                   | Speace between page and edge of the screeen |   number | 24      |
-| selectedPage           | Selected page index                         |   number | -       |
-| style                  | Style of component itself                   |    style | -       |
-| onCurrentPageChange    | Fires when current page changed             | function | -       |
-| onSelectedPageChange   | Fires when selected page changed            | function | -       |
+| name                   | description                               |     type | default |
+| :--------------------- | :---------------------------------------- | -------: | :------ |
+| children               | Content                                   |     Node | -       |
+| mode                   | "page" or "card"                          |   string | page    |
+| contentPaddingVertical | Vertical padding of content container     |   number | -       |
+| pageMargin             | Space between pages                       |   number | 8       |
+| peek                   | Space between page and edge of the screen |   number | 24      |
+| selectedPage           | Selected page index                       |   number | -       |
+| style                  | Style of component itself                 |    style | -       |
+| onCurrentPageChange    | Fires when current page changed           | function | -       |
+| onSelectedPageChange   | Fires when selected page changed          | function | -       |
 
 ## License
 

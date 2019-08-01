@@ -2,7 +2,7 @@
 
 Manages content height gracefully allowing to alternate betweeen two states: expanded and collapsed.
 ExpandableView doesn't require setting content height explicitly and measures it automatically.
-Usefull for building accordion-like components.
+Useful for building accordion-like components.
 
 ## Installation
 

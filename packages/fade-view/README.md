@@ -1,7 +1,7 @@
 # FadeView
 
 Changes content with _FadeOut-FadeIn_ animation. `FadeView` uses `data` prop to know when start
-the transition. Usefull in situations when you want to change content smoothly, implementing tabs
+the transition. Useful in situations when you want to change content smoothly, implementing tabs
 content for example.
 
 <img src="https://media.giphy.com/media/1zgdmaNWIiMIJm9klY/giphy.gif" />
@@ -23,8 +23,8 @@ npm install -S @pietile-native-kit/fade-view
 ## Usage
 
 Wrap the content in `FadeView` and set `data` to value that controls content. Every time data
-changes `FadeView` will rember children, play _FadeOut_ animation and then _FadeIn_ with curent children
-already. So it's important to notice that `FadeView` passthrogh children all the time except when
+changes `FadeView` will remeber children, play _FadeOut_ animation and then _FadeIn_ with current children
+already. So it's important to notice that `FadeView` passthrough children all the time except when
 playing _FadeOut_.
 
 ## Code example
