@@ -1,5 +1,7 @@
 # PageSlider
 
+[![npm version](https://badgen.net/npm/v/@pietile-native-kit/page-slider)](https://www.npmjs.com/package/@pietile-native-kit/page-slider)
+
 Helps to implement swipeable pages. `PageSlider` is controlled with `selectedPage` prop compnent and
 can work in two modes: `page` when page occupies whole width of the screen and `card` when
 adjacent pages are visible at sides.

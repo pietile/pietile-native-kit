@@ -1,5 +1,7 @@
 # FadeView
 
+[![npm version](https://badgen.net/npm/v/@pietile-native-kit/fade-view)](https://www.npmjs.com/package/@pietile-native-kit/fade-view)
+
 Changes content with _FadeOut-FadeIn_ animation. `FadeView` uses `data` prop to know when start
 the transition. Useful in situations when you want to change content smoothly, implementing tabs
 content for example.
