@@ -55,6 +55,26 @@ function KeyboardAwareScrollViewExample() {
 }
 ```
 
+## How to use with FlatList or SectionList?
+
+Just pass `renderScrollComponent` props to list like below in example.
+
+```jsx
+import React, { useCallback } from 'react';
+
+import { FlatList } from 'react-native';
+import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-srollview';
+
+function KeyboardAwareFlatList({ ...props }) {
+  const renderScrollComponent = useCallback(
+    scrollProps => <KeyboardAwareScrollView {...scrollProps} />,
+    [],
+  );
+
+  return <FlatList {...props} renderScrollComponent={renderScrollComponent} />;
+}
+```
+
 ## API
 
 ### Properties
