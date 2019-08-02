@@ -103,7 +103,7 @@ class KeyboardAwareScrollView extends Component {
       easing: EASING,
     }).start();
 
-    if (paddingBottom === 0) {
+    if (!endCoordinates || !endCoordinates.height) {
       this.setState({ keyboardShown: false });
       return;
     }
@@ -162,7 +162,10 @@ class KeyboardAwareScrollView extends Component {
           return;
         }
 
-        const { top: innerViewPositionY } = await measureInWindow(findNodeHandle(innerViewNode));
+        let { top: innerViewPositionY } = await measureInWindow(findNodeHandle(innerViewNode));
+
+        // Subtract status bar height for android
+        innerViewPositionY += StatusBar.currentHeight || 0;
 
         if (!this._mounted) {
           return;
@@ -171,9 +174,9 @@ class KeyboardAwareScrollView extends Component {
         const scrollDistance = this._scrollViewPosY - innerViewPositionY;
 
         let scrollTo;
-        if (top - extraHeight - scrollDistance < height) {
+        if (top - height - scrollDistance < extraHeight) {
           // Input above the top
-          scrollTo = top - extraHeight - height;
+          scrollTo = top - extraHeight;
         } else if (top + height + extraHeight - scrollDistance > this._keyboardPosY) {
           // Input below the bottom
           scrollTo = top + extraHeight + height - this._keyboardPosY;
