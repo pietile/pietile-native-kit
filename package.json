@@ -11,10 +11,12 @@
     "@react-native-community/eslint-config": "~0.0.0",
     "eslint": "~6.1.0",
     "eslint-plugin-prettier": "~3.1.0",
+    "husky": "~3.0.0",
     "import-sort": "~6.0.0",
     "import-sort-cli": "~6.0.0",
     "import-sort-parser-babylon": "~6.0.0",
     "import-sort-style-pietile": "~1.1.0",
+    "lint-staged": "~9.2.0",
     "prettier": "~1.18.0"
   },
   "workspaces": {
@@ -25,6 +27,22 @@
     "nohoist": [
       "pietile-native-kit-example",
       "pietile-native-kit-example/**"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "import-sort --write",
+      "prettier --write",
+      "git add"
+    ],
+    "*.md": [
+      "prettier --write",
+      "git add"
     ]
   }
 }
