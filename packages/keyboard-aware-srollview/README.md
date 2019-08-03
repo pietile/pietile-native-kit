@@ -9,6 +9,11 @@ Following focused input when keyboard is already open is also supported. Interna
 [UIManager](https://facebook.github.io/react-native/docs/direct-manipulation#other-native-methods) and
 [Animated](https://facebook.github.io/react-native/docs/animations) to position an input in the field of view.
 
+<p float="left">
+  <img src="https://media.giphy.com/media/d5eJhlxTCzuchBFCie/giphy.gif" />
+  <img src="https://media.giphy.com/media/eKUWRMD1S4C3AajBpe/giphy.gif" />
+</p>
+
 ## Features
 
 - Accurate positioning
