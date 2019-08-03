@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Animated,
   DeviceInfo,
+  Dimensions,
   Easing,
   Keyboard,
   Platform,
@@ -21,7 +22,10 @@ const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
 const ANIMATION_DURATION = Platform.select({ ios: 250, other: 125 });
 
-const IPHONE_X_INSET = 44;
+const IPHONE_X_INSET = {
+  top: 44,
+  bottom: 34,
+};
 
 /**
  * Keyboard aware scroll view.
@@ -36,7 +40,11 @@ class KeyboardAwareScrollView extends Component {
 
   _mounted = false;
 
-  state = { paddingBottom: new Animated.Value(0), keyboardShown: false };
+  state = {
+    paddingBottom: new Animated.Value(0),
+    keyboardShown: false,
+    scrollIndicatorBottomInset: 0,
+  };
 
   componentDidMount() {
     this._mounted = true;
@@ -93,6 +101,19 @@ class KeyboardAwareScrollView extends Component {
     // Calc padding bottom
     const paddingBottom = height - this._keyboardPosY;
 
+    let scrollIndicatorBottomInset = 0;
+
+    // Calc scroll indicator bottom inset
+    if (DeviceInfo.isIPhoneX_deprecated) {
+      const { height: screenHeight } = Dimensions.get('screen');
+
+      // If scrollview intersects iOS bottom inset
+      if (top + height > screenHeight - IPHONE_X_INSET.bottom) {
+        scrollIndicatorBottomInset =
+          paddingBottom - (screenHeight - top - height + IPHONE_X_INSET.bottom);
+      }
+    }
+
     // Animate keyboard height change
     Animated.timing(this.state.paddingBottom, {
       duration: event.duration || ANIMATION_DURATION,
@@ -100,7 +121,7 @@ class KeyboardAwareScrollView extends Component {
       easing: EASING,
     }).start();
 
-    this.setState({ keyboardShown: true });
+    this.setState({ keyboardShown: true, scrollIndicatorBottomInset });
 
     const currentlyFocusedField = TextInput.State.currentlyFocusedField();
     if (!currentlyFocusedField) {
@@ -117,7 +138,7 @@ class KeyboardAwareScrollView extends Component {
       easing: EASING,
     }).start();
 
-    this.setState({ keyboardShown: false });
+    this.setState({ keyboardShown: false, scrollIndicatorBottomInset: 0 });
   };
 
   onFocus = e => {
@@ -175,8 +196,8 @@ class KeyboardAwareScrollView extends Component {
         let inset = 0;
 
         // Calc inset for iphoneX
-        if (DeviceInfo.isIPhoneX_deprecated && this._scrollViewPosY < IPHONE_X_INSET) {
-          inset = IPHONE_X_INSET - this._scrollViewPosY;
+        if (DeviceInfo.isIPhoneX_deprecated && this._scrollViewPosY < IPHONE_X_INSET.top) {
+          inset = IPHONE_X_INSET.top - this._scrollViewPosY;
         }
 
         let scrollTo;
@@ -234,6 +255,7 @@ class KeyboardAwareScrollView extends Component {
     return (
       <ScrollView
         contentContainerStyle={[styles.contentContainer, scrollViewContentContainerStyle]}
+        scrollIndicatorInsets={{ bottom: this.state.scrollIndicatorBottomInset }}
         {...props}
         keyboardDismissMode="interactive"
         onFocus={this.onFocus}
