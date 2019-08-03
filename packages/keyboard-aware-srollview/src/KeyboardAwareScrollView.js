@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   Animated,
-  Dimensions,
+  DeviceInfo,
   Easing,
   Keyboard,
   Platform,
@@ -20,6 +20,8 @@ import { measureInWindow, measureLayout, viewIsDescendantOf } from './uiManagerP
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
 const ANIMATION_DURATION = 125;
+
+const IPHONE_X_INSET = 44;
 
 /**
  * Keyboard aware scroll view.
@@ -41,14 +43,15 @@ class KeyboardAwareScrollView extends Component {
 
     if (Platform.OS === 'ios') {
       this._subscriptions = [
-        Keyboard.addListener('keyboardWillChangeFrame', this.onKeyboardChange),
+        Keyboard.addListener('keyboardWillShow', this.onKeyboardShow),
+        Keyboard.addListener('keyboardWillHide', this.onKeyboardHide),
       ];
       return;
     }
 
     this._subscriptions = [
-      Keyboard.addListener('keyboardDidShow', this.onKeyboardChange),
-      Keyboard.addListener('keyboardDidHide', this.onKeyboardChange),
+      Keyboard.addListener('keyboardDidShow', this.onKeyboardShow),
+      Keyboard.addListener('keyboardDidHide', this.onKeyboardHide),
     ];
   }
 
@@ -64,15 +67,10 @@ class KeyboardAwareScrollView extends Component {
     this._subscriptions = [];
   }
 
-  onKeyboardChange = async event => {
+  onKeyboardShow = async event => {
     if (!this._scrollView.current) {
       return;
     }
-
-    // Destruction is necessary because keyboardDidHide on android return null
-    const { duration = ANIMATION_DURATION, endCoordinates } = event || {};
-
-    const { height: screenHeight } = Dimensions.get('screen');
 
     // Get scroll view height and top position
     const { height, top } = await measureInWindow(findNodeHandle(this._scrollView.current));
@@ -84,29 +82,23 @@ class KeyboardAwareScrollView extends Component {
     // Save scroll view Y position
     this._scrollViewPosY = top;
 
-    /**
-     * Get keyboard position by Y axis at current view.
-     * Subtract status bar height for android.
-     */
-    this._keyboardPosY = endCoordinates
-      ? endCoordinates.screenY - top - (StatusBar.currentHeight || 0)
-      : screenHeight;
+    // Get keyboard position by Y axis at current view.
+    this._keyboardPosY = event.endCoordinates.screenY - top;
+
+    // Subtract status bar height for android.
+    if (StatusBar.currentHeight) {
+      this._keyboardPosY -= StatusBar.currentHeight;
+    }
 
     // Calc padding bottom
-    const paddingBottom =
-      endCoordinates && endCoordinates.screenY !== screenHeight ? height - this._keyboardPosY : 0;
+    const paddingBottom = height - this._keyboardPosY;
 
     // Animate keyboard height change
     Animated.timing(this.state.paddingBottom, {
-      duration,
+      duration: event.duration || ANIMATION_DURATION,
       toValue: paddingBottom,
       easing: EASING,
     }).start();
-
-    if (paddingBottom === 0) {
-      this.setState({ keyboardShown: false });
-      return;
-    }
 
     this.setState({ keyboardShown: true });
 
@@ -116,6 +108,16 @@ class KeyboardAwareScrollView extends Component {
     }
 
     this.scrollToInput(currentlyFocusedField);
+  };
+
+  onKeyboardHide = event => {
+    Animated.timing(this.state.paddingBottom, {
+      duration: (event && event.duration) || ANIMATION_DURATION,
+      toValue: 0,
+      easing: EASING,
+    }).start();
+
+    this.setState({ keyboardShown: false });
   };
 
   onFocus = e => {
@@ -170,10 +172,17 @@ class KeyboardAwareScrollView extends Component {
 
         const scrollDistance = this._scrollViewPosY - innerViewPositionY;
 
+        let inset = 0;
+
+        // Calc inset for iphoneX
+        if (DeviceInfo.isIPhoneX_deprecated && this._scrollViewPosY < IPHONE_X_INSET) {
+          inset = IPHONE_X_INSET - this._scrollViewPosY;
+        }
+
         let scrollTo;
-        if (top - extraHeight - scrollDistance < height) {
+        if (top - scrollDistance - inset < extraHeight) {
           // Input above the top
-          scrollTo = top - extraHeight - height;
+          scrollTo = top - extraHeight - inset;
         } else if (top + height + extraHeight - scrollDistance > this._keyboardPosY) {
           // Input below the bottom
           scrollTo = top + extraHeight + height - this._keyboardPosY;
