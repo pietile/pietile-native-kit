@@ -194,7 +194,7 @@ class KeyboardAwareScrollView extends Component {
           return;
         }
 
-        let { top: innerViewPositionY } = await measureInWindow(findNodeHandle(innerViewNode));
+        const { top: innerViewPositionY } = await measureInWindow(findNodeHandle(innerViewNode));
 
         if (!this._mounted) {
           return;
