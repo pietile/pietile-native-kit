@@ -43,14 +43,15 @@ class KeyboardAwareScrollView extends Component {
 
     if (Platform.OS === 'ios') {
       this._subscriptions = [
-        Keyboard.addListener('keyboardWillChangeFrame', this.onKeyboardChange),
+        Keyboard.addListener('keyboardWillShow', this.onKeyboardShow),
+        Keyboard.addListener('keyboardWillHide', this.onKeyboardHide),
       ];
       return;
     }
 
     this._subscriptions = [
-      Keyboard.addListener('keyboardDidShow', this.onKeyboardChange),
-      Keyboard.addListener('keyboardDidHide', this.onKeyboardChange),
+      Keyboard.addListener('keyboardDidShow', this.onKeyboardShow),
+      Keyboard.addListener('keyboardDidHide', this.onKeyboardHide),
     ];
   }
 
@@ -66,20 +67,8 @@ class KeyboardAwareScrollView extends Component {
     this._subscriptions = [];
   }
 
-  onKeyboardChange = async event => {
+  onKeyboardShow = async event => {
     if (!this._scrollView.current) {
-      return;
-    }
-
-    if (!event || !event.endCoordinates.height) {
-      Animated.timing(this.state.paddingBottom, {
-        duration: (event && event.duration) || ANIMATION_DURATION,
-        toValue: 0,
-        easing: EASING,
-      }).start();
-
-      this.setState({ keyboardShown: false });
-
       return;
     }
 
@@ -119,6 +108,16 @@ class KeyboardAwareScrollView extends Component {
     }
 
     this.scrollToInput(currentlyFocusedField);
+  };
+
+  onKeyboardHide = event => {
+    Animated.timing(this.state.paddingBottom, {
+      duration: (event && event.duration) || ANIMATION_DURATION,
+      toValue: 0,
+      easing: EASING,
+    }).start();
+
+    this.setState({ keyboardShown: false });
   };
 
   onFocus = e => {
@@ -174,6 +173,8 @@ class KeyboardAwareScrollView extends Component {
         const scrollDistance = this._scrollViewPosY - innerViewPositionY;
 
         let inset = 0;
+
+        // Calc inset for iphoneX
         if (DeviceInfo.isIPhoneX_deprecated && this._scrollViewPosY < IPHONE_X_INSET) {
           inset = IPHONE_X_INSET - this._scrollViewPosY;
         }
