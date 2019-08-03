@@ -19,7 +19,7 @@ import { measureInWindow, measureLayout, viewIsDescendantOf } from './uiManagerP
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
-const ANIMATION_DURATION = 125;
+const ANIMATION_DURATION = Platform.select({ ios: 250, other: 125 });
 
 const IPHONE_X_INSET = 44;
 
