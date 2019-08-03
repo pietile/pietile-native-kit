@@ -1,6 +1,6 @@
 # ExpandableView
 
-[![npm version](https://badgen.net/npm/v/@pietile-native-kit/expandable-view)](https://www.npmjs.com/package/@pietile-native-kit/expandable-view)
+[![npm version](https://badgen.net/npm/v/@pietile-native-kit/expandable-view?color=56C838)](https://www.npmjs.com/package/@pietile-native-kit/expandable-view)
 
 Manages content height gracefully allowing to alternate betweeen two states: expanded and collapsed.
 ExpandableView doesn't require setting content height explicitly and measures it automatically.
