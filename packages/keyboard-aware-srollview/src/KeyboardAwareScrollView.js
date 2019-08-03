@@ -26,35 +26,6 @@ const IPHONE_X_INSET = 44;
 /**
  * Keyboard aware scroll view.
  * Based on react-native KeyboardAvoidingView and react-native-keyboard-aware-scroll-view.
- *
- * Scheme:
- * +-------------------------+ <---+ 0
- * | Inset                   |
- * +-------------------------+
- * |                         |
- * |                         |
- * XXXXXXXXXXXXXXXXXXXXXXXXXXX <---+ Scroll distance
- * X Extra height            X
- * X-------------------------X
- * X                         X
- * X                         X
- * X +---------------------+ X <---+ Top
- * X | Input height        | X
- * X +---------------------+ X
- * X                         X
- * X                         X
- * X                         X
- * ########################### <---+ Keyboard
- * #                         #
- * #                         #
- * #-------------------------#
- * # Extra height            #
- * #XXXXXXXXXXXXXXXXXXXXXXXXX#
- * #                         #
- * #                         #
- * #                         #
- * ###########################
- *
  */
 class KeyboardAwareScrollView extends Component {
   _subscriptions = [];
