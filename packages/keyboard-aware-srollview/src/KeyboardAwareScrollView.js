@@ -101,16 +101,15 @@ class KeyboardAwareScrollView extends Component {
     // Calc padding bottom
     const paddingBottom = height - this._keyboardPosY;
 
-    let scrollIndicatorBottomInset = 0;
+    let scrollIndicatorBottomInset = paddingBottom;
 
-    // Calc scroll indicator bottom inset
+    // Check if scrollview intersects iOS bottom inset
     if (DeviceInfo.isIPhoneX_deprecated) {
       const { height: screenHeight } = Dimensions.get('screen');
 
-      // If scrollview intersects iOS bottom inset
       if (top + height > screenHeight - IPHONE_X_INSET.bottom) {
-        scrollIndicatorBottomInset =
-          paddingBottom - (screenHeight - top - height + IPHONE_X_INSET.bottom);
+        // Subtract inset if needed
+        scrollIndicatorBottomInset -= screenHeight - top - height + IPHONE_X_INSET.bottom;
       }
     }
 
