@@ -300,12 +300,12 @@ KeyboardAwareScrollView.propTypes = {
   contentContainerStyle: ViewPropTypes.style,
   contentContainerStyleKeyboardShown: ViewPropTypes.style,
   extraHeight: PropTypes.number,
-  onFocus: PropTypes.func,
-  scrollViewContentContainerStyle: ViewPropTypes.style,
   innerRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.elementType }),
   ]),
+  onFocus: PropTypes.func,
+  scrollViewContentContainerStyle: ViewPropTypes.style,
 };
 
 KeyboardAwareScrollView.defaultProps = {
