@@ -1,6 +1,6 @@
 {
   "name": "@pietile-native-kit/keyboard-aware-scrollview",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "ScrollView that moves child input just above the keyboard when later gets focus",
   "keywords": [
     "react-native",
