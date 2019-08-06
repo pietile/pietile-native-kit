@@ -90,13 +90,17 @@ function KeyboardAwareFlatList({ ...props }) {
 | contentContainerStyle              | Style of container that wraps children and used to adjust bottom padding to keyboard                       |  style | -       |
 | contentContainerStyleKeyboardShown | Style that applied to contentContainerStyle when keyboard is shown                                         |  style | -       |
 | extraHeight                        | Additional height between keyboard and focused input                                                       | number | 24      |
+| ref                                | Ref to underlying ScrollView                                                                               |    ref | -       |
 | scrollViewContentContainerStyle    | See [contentContainerStyle](https://facebook.github.io/react-native/docs/scrollview#contentcontainerstyle) |  style | -       |
+| selfRef                            | Ref to KeyboardAwareScrollView itself                                                                      |    ref | -       |
 
 ### Methods
 
 | name                 | description     |
 | :------------------- | :-------------- |
 | scrollToInput(input) | Scroll to input |
+
+**Note:** you should use `selfRef` to access method
 
 ## Acknowledge
 
