@@ -78,16 +78,17 @@ class KeyboardAwareScrollView extends Component {
   updateScrollViewRef = scrollView => {
     this._scrollView.current = scrollView;
 
-    if (!this.props.innerRef) {
+    const { innerRef } = this.props;
+    if (!innerRef) {
       return;
     }
 
-    const innerRef = this.props.innerRef;
     if (typeof innerRef === 'function') {
       innerRef(scrollView);
-    } else {
-      innerRef.current = scrollView;
+      return;
     }
+
+    innerRef.current = scrollView;
   };
 
   onKeyboardShow = async event => {
