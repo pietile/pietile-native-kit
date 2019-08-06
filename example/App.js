@@ -8,13 +8,12 @@
 
 import React from 'react';
 
+import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-scrollview';
 import { StyleSheet } from 'react-native';
-
-import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-srollview';
 
 import ExpandableViewExample from './src/ExpandableViewExample';
 import FadeViewExample from './src/FadeViewExample';
-import KeyboardAwareSrollviewExample from './src/KeyboardAwareSrollviewExample';
+import KeyboardAwareScrollViewExample from './src/KeyboardAwareScrollViewExample';
 import PageSliderExample from './src/PageSliderExample';
 
 export default function App() {
@@ -23,7 +22,7 @@ export default function App() {
       <FadeViewExample style={[styles.example, styles.fadeView]} />
       <PageSliderExample style={styles.example} />
       <ExpandableViewExample style={styles.example} />
-      <KeyboardAwareSrollviewExample />
+      <KeyboardAwareScrollViewExample />
     </KeyboardAwareScrollView>
   );
 }
