@@ -1,14 +1,15 @@
 import React from 'react';
-import { TextInput, StyleSheet, View, Text } from 'react-native';
+
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 function Input({ style, ...props }) {
   return <TextInput style={[styles.input, style]} {...props} />;
 }
 
-function KeyboardAwareSrollviewExample() {
+function KeyboardAwareScrollviewExample() {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>KeyboardAwareSrollview</Text>
+      <Text style={styles.heading}>KeyboardAwareScrollview</Text>
       <Input keyboardType="numeric" />
       <Input />
       <Input keyboardType="numeric" />
@@ -48,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default KeyboardAwareSrollviewExample;
+export default KeyboardAwareScrollviewExample;
