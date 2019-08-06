@@ -78,17 +78,17 @@ class KeyboardAwareScrollView extends Component {
   updateScrollViewRef = scrollView => {
     this._scrollView.current = scrollView;
 
-    const { innerRef } = this.props;
-    if (!innerRef) {
+    const { scrollViewRef } = this.props;
+    if (!scrollViewRef) {
       return;
     }
 
-    if (typeof innerRef === 'function') {
-      innerRef(scrollView);
+    if (typeof scrollViewRef === 'function') {
+      scrollViewRef(scrollView);
       return;
     }
 
-    innerRef.current = scrollView;
+    scrollViewRef.current = scrollView;
   };
 
   onKeyboardShow = async event => {
@@ -300,7 +300,7 @@ KeyboardAwareScrollView.propTypes = {
   contentContainerStyle: ViewPropTypes.style,
   contentContainerStyleKeyboardShown: ViewPropTypes.style,
   extraHeight: PropTypes.number,
-  innerRef: PropTypes.oneOfType([
+  scrollViewRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.elementType }),
   ]),
@@ -312,6 +312,4 @@ KeyboardAwareScrollView.defaultProps = {
   extraHeight: 24,
 };
 
-export default React.forwardRef(({ selfRef, ...props }, innerRef) => (
-  <KeyboardAwareScrollView ref={selfRef} innerRef={innerRef} {...props} />
-));
+export default KeyboardAwareScrollView;
