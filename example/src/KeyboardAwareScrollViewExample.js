@@ -6,7 +6,7 @@ function Input({ style, ...props }) {
   return <TextInput style={[styles.input, style]} {...props} />;
 }
 
-function KeyboardAwareScrollviewExample() {
+function KeyboardAwareScrollViewExample() {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>KeyboardAwareScrollview</Text>
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default KeyboardAwareScrollviewExample;
+export default KeyboardAwareScrollViewExample;
