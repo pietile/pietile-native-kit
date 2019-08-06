@@ -71,10 +71,13 @@ import { FlatList } from 'react-native';
 import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-srollview';
 
 function KeyboardAwareFlatList({ ...props }) {
-  const renderScrollComponent = useCallback(
-    scrollProps => <KeyboardAwareScrollView {...scrollProps} />,
-    [],
-  );
+  const renderScrollComponent = useCallback(scrollProps => {
+    const ScrollComponent = React.forwardRef((forwardedProps, ref) => (
+      <KeyboardAwareScrollView scrollViewRef={ref} {...forwardedProps} />
+    ));
+
+    return <ScrollComponent {...scrollProps} />;
+  }, []);
 
   return <FlatList {...props} renderScrollComponent={renderScrollComponent} />;
 }
@@ -91,6 +94,7 @@ function KeyboardAwareFlatList({ ...props }) {
 | contentContainerStyleKeyboardShown | Style that applied to contentContainerStyle when keyboard is shown                                         |  style | -       |
 | extraHeight                        | Additional height between keyboard and focused input                                                       | number | 24      |
 | scrollViewContentContainerStyle    | See [contentContainerStyle](https://facebook.github.io/react-native/docs/scrollview#contentcontainerstyle) |  style | -       |
+| scrollViewRef                      | Ref to underlying ScrollView                                                                               |    ref | -       |
 
 ### Methods
 

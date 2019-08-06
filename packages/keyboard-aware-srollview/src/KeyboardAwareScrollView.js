@@ -75,6 +75,22 @@ class KeyboardAwareScrollView extends Component {
     this._subscriptions = [];
   }
 
+  onRef = scrollView => {
+    this._scrollView.current = scrollView;
+
+    const { scrollViewRef } = this.props;
+    if (!scrollViewRef) {
+      return;
+    }
+
+    if (typeof scrollViewRef === 'function') {
+      scrollViewRef(scrollView);
+      return;
+    }
+
+    scrollViewRef.current = scrollView;
+  };
+
   onKeyboardShow = async event => {
     if (!this._scrollView.current) {
       return;
@@ -258,7 +274,7 @@ class KeyboardAwareScrollView extends Component {
         {...props}
         keyboardDismissMode="interactive"
         onFocus={this.onFocus}
-        ref={this._scrollView}
+        ref={this.onRef}
       >
         <Animated.View
           style={[
@@ -286,6 +302,10 @@ KeyboardAwareScrollView.propTypes = {
   extraHeight: PropTypes.number,
   onFocus: PropTypes.func,
   scrollViewContentContainerStyle: ViewPropTypes.style,
+  scrollViewRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.elementType }),
+  ]),
 };
 
 KeyboardAwareScrollView.defaultProps = {
