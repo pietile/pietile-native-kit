@@ -75,7 +75,7 @@ class KeyboardAwareScrollView extends Component {
     this._subscriptions = [];
   }
 
-  updateScrollViewRef = scrollView => {
+  onRef = scrollView => {
     this._scrollView.current = scrollView;
 
     const { scrollViewRef } = this.props;
@@ -274,7 +274,7 @@ class KeyboardAwareScrollView extends Component {
         {...props}
         keyboardDismissMode="interactive"
         onFocus={this.onFocus}
-        ref={this.updateScrollViewRef}
+        ref={this.onRef}
       >
         <Animated.View
           style={[
