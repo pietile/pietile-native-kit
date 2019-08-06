@@ -312,6 +312,6 @@ KeyboardAwareScrollView.defaultProps = {
   extraHeight: 24,
 };
 
-export default React.forwardRef((props, ref) => (
-  <KeyboardAwareScrollView innerRef={ref} {...props} />
+export default React.forwardRef(({ selfRef, ...props }, innerRef) => (
+  <KeyboardAwareScrollView ref={selfRef} innerRef={innerRef} {...props} />
 ));
