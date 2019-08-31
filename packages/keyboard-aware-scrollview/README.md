@@ -1,6 +1,7 @@
 # KeyboardAwareScrollView
 
 [![npm version](https://badgen.net/npm/v/@pietile-native-kit/keyboard-aware-scrollview?color=56C838)](https://www.npmjs.com/package/@pietile-native-kit/keyboard-aware-scrollview)
+[![install size](https://badgen.net/packagephobia/install/@pietile-native-kit/keyboard-aware-scrollview)](https://packagephobia.now.sh/result?p=@pietile-native-kit/keyboard-aware-scrollview)
 
 Solves the [very](https://github.com/react-native-community/discussions-and-proposals/issues/64#issuecomment-445054585) [common](https://www.reddit.com/r/reactnative/comments/azuy4v/were_the_react_native_team_aua/eiaa8vs/)
 React Native problem of software keyboard popping over focused text input and tries to do it accurate and smooth (even on Android).
