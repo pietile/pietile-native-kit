@@ -33,7 +33,7 @@ Usage is quite simple: put content in `ExpandableView` and control `show` proper
 import React, { useState } from 'react';
 
 import ExpandableView from '@pietile-native-kit/expandable-view';
-import { Text, TouchableHighlight, View, ViewPropTypes } from 'react-native';
+import { Text, TouchableHighlight, View } from 'react-native';
 
 function ExpandableViewExample({ style }) {
   const [show, setShow] = useState(true);
