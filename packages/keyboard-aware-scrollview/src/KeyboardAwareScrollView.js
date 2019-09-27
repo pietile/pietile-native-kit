@@ -216,12 +216,13 @@ class KeyboardAwareScrollView extends Component {
         }
 
         let scrollTo;
-        if (top - scrollDistance - inset < extraHeight) {
-          // Input above the top
-          scrollTo = top - extraHeight - inset;
-        } else if (top + height + extraHeight - scrollDistance > this._keyboardPosY) {
+
+        if (top + height + extraHeight - scrollDistance > this._keyboardPosY) {
           // Input below the bottom
           scrollTo = top + extraHeight + height - this._keyboardPosY;
+        } else if (top - scrollDistance - inset < extraHeight) {
+          // Input above the top
+          scrollTo = top - extraHeight - inset;
         }
 
         if (scrollTo === undefined || !this._scrollView.current) {

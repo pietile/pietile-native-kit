@@ -15,6 +15,7 @@ function KeyboardAwareScrollViewExample() {
       <Input keyboardType="numeric" />
       <Input />
       <Input keyboardType="numeric" />
+      <Input multiline style={styles.multilineInput} />
       <Input style={styles.lastInput} />
     </View>
   );
@@ -43,6 +44,10 @@ const styles = StyleSheet.create({
     height: 32,
     marginBottom: 32,
     paddingHorizontal: 8,
+  },
+  multilineInput: {
+    height: 'auto',
+    minHeight: 32,
   },
   lastInput: {
     marginBottom: 0,
