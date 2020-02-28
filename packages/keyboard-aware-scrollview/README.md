@@ -68,15 +68,15 @@ Just pass `renderScrollComponent` props to list like below in example.
 ```jsx
 import React, { useCallback } from 'react';
 
-import { FlatList } from 'react-native';
 import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-scrollview';
+import { FlatList } from 'react-native';
 
-function KeyboardAwareFlatList({ ...props }) {
+const ScrollComponent = React.forwardRef((forwardedProps, ref) => (
+  <KeyboardAwareScrollView scrollViewRef={ref} {...forwardedProps} />
+));
+
+function KeyboardAwareFlatList(props) {
   const renderScrollComponent = useCallback(scrollProps => {
-    const ScrollComponent = React.forwardRef((forwardedProps, ref) => (
-      <KeyboardAwareScrollView scrollViewRef={ref} {...forwardedProps} />
-    ));
-
     return <ScrollComponent {...scrollProps} />;
   }, []);
 
