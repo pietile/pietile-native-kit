@@ -27,11 +27,11 @@
   },
   "dependencies": {
     "prop-types": "~15.7.0",
-    "react-fast-compare": "~2.0.0"
+    "react-fast-compare": "~3.0.0"
   },
   "devDependencies": {
-    "react": "16.8.6",
-    "react-native": "0.60.4"
+    "react": "16.9.0",
+    "react-native": "0.61.5"
   },
   "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/fade-view",
   "bugs": {
