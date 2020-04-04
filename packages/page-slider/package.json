@@ -30,8 +30,8 @@
     "prop-types": "~15.7.0"
   },
   "devDependencies": {
-    "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react": "16.11.0",
+    "react-native": "0.62.1"
   },
   "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/page-slider",
   "bugs": {

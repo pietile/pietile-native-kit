@@ -56,7 +56,7 @@ class ExpandableView extends Component {
     }
   }
 
-  onLayout = e => {
+  onLayout = (e) => {
     // Save full element height
     this.fullHeight = e.nativeEvent.layout.height;
 
@@ -93,10 +93,12 @@ class ExpandableView extends Component {
         Animated.timing(this.state.height, {
           duration: COLLAPSE_DURATION,
           toValue: 0,
+          useNativeDriver: false,
         }),
         Animated.timing(this.state.opacity, {
           duration: COLLAPSE_DURATION,
           toValue: 0,
+          useNativeDriver: false,
         }),
       ]);
 
@@ -132,10 +134,12 @@ class ExpandableView extends Component {
         Animated.timing(this.state.height, {
           duration: EXPAND_DURATION,
           toValue: this.fullHeight,
+          useNativeDriver: false,
         }),
         Animated.timing(this.state.opacity, {
           duration: EXPAND_DURATION,
           toValue: 1,
+          useNativeDriver: false,
         }),
       ]);
 

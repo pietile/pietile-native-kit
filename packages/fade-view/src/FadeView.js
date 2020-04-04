@@ -16,7 +16,7 @@ function FadeView({ children, data, duration, style }) {
   const hiding = useRef(false);
 
   const [opacity] = useState(() => new Animated.Value(1));
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   if (!isEqual(prevData.current, data)) {
     prevData.current = data;
@@ -26,6 +26,7 @@ function FadeView({ children, data, duration, style }) {
       duration,
       easing: EASING,
       toValue: 0,
+      useNativeDriver: true,
     }).start(({ finished }) => {
       if (!finished || !isMounted()) {
         return;
@@ -38,6 +39,7 @@ function FadeView({ children, data, duration, style }) {
         duration,
         easing: EASING,
         toValue: 1,
+        useNativeDriver: true,
       }).start();
     });
   } else if (!hiding.current) {

@@ -47,7 +47,7 @@ class PageSlider extends Component {
     }
   };
 
-  onScroll = e => {
+  onScroll = (e) => {
     this._offsetX = e.nativeEvent.contentOffset.x;
 
     const currentPage = this._getCurrentPage();
@@ -145,7 +145,7 @@ class PageSlider extends Component {
     return (
       <ScrollView
         style={style}
-        ref={scrollView => {
+        ref={(scrollView) => {
           this._scrollView = scrollView;
         }}
         horizontal

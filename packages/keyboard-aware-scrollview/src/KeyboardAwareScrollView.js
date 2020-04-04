@@ -71,11 +71,11 @@ class KeyboardAwareScrollView extends Component {
       this._scrollToFocusedInputTimeout = null;
     }
 
-    this._subscriptions.forEach(subscription => subscription.remove());
+    this._subscriptions.forEach((subscription) => subscription.remove());
     this._subscriptions = [];
   }
 
-  onRef = scrollView => {
+  onRef = (scrollView) => {
     this._scrollView.current = scrollView;
 
     const { scrollViewRef } = this.props;
@@ -91,7 +91,7 @@ class KeyboardAwareScrollView extends Component {
     scrollViewRef.current = scrollView;
   };
 
-  onKeyboardShow = async event => {
+  onKeyboardShow = async (event) => {
     if (!this._scrollView.current) {
       return;
     }
@@ -134,6 +134,7 @@ class KeyboardAwareScrollView extends Component {
       duration: event.duration || ANIMATION_DURATION,
       toValue: paddingBottom,
       easing: EASING,
+      useNativeDriver: false,
     }).start();
 
     this.setState({ keyboardShown: true, scrollIndicatorBottomInset });
@@ -146,17 +147,18 @@ class KeyboardAwareScrollView extends Component {
     this.scrollToInput(currentlyFocusedField);
   };
 
-  onKeyboardHide = event => {
+  onKeyboardHide = (event) => {
     Animated.timing(this.state.paddingBottom, {
       duration: (event && event.duration) || ANIMATION_DURATION,
       toValue: 0,
       easing: EASING,
+      useNativeDriver: false,
     }).start();
 
     this.setState({ keyboardShown: false, scrollIndicatorBottomInset: 0 });
   };
 
-  onFocus = e => {
+  onFocus = (e) => {
     if (this.props.onFocus) {
       this.props.onFocus(e);
     }
@@ -168,7 +170,7 @@ class KeyboardAwareScrollView extends Component {
     this.scrollToInput(e.nativeEvent.target);
   };
 
-  scrollToInput = async input => {
+  scrollToInput = async (input) => {
     if (!this._scrollView.current) {
       return;
     }
