@@ -7,7 +7,7 @@ Changes content with _FadeOut-FadeIn_ animation. `FadeView` uses `data` prop to 
 the transition. Useful in situations when you want to change content smoothly, implementing tabs
 content for example.
 
-<img src="https://media.giphy.com/media/1zgdmaNWIiMIJm9klY/giphy.gif" />
+<img src="https://media.giphy.com/media/UowUvUvitH7sWZVjSY/giphy.gif" />
 
 ## Installation
 
