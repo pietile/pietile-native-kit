@@ -139,7 +139,9 @@ class KeyboardAwareScrollView extends Component {
 
     this.setState({ keyboardShown: true, scrollIndicatorBottomInset });
 
-    const currentlyFocusedField = TextInput.State.currentlyFocusedField();
+    const currentlyFocusedField = TextInput.State.currentlyFocusedInput
+      ? findNodeHandle(TextInput.State.currentlyFocusedInput())
+      : TextInput.State.currentlyFocusedField();
     if (!currentlyFocusedField) {
       return;
     }

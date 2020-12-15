@@ -8,16 +8,15 @@
     "prettify": "import-sort --write 'packages/*/src/**/*.js' && prettier --write 'packages/*/src/**/*.js' && eslint 'packages/*/src/**/*.js'"
   },
   "devDependencies": {
-    "@react-native-community/eslint-config": "^0.0.5",
-    "eslint": "^6.0.0",
-    "eslint-plugin-prettier": "~3.1.0",
-    "husky": "~4.2.0",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "eslint": "^6.5.1",
+    "husky": "~4.3.0",
     "import-sort": "~6.0.0",
     "import-sort-cli": "~6.0.0",
     "import-sort-parser-babylon": "~6.0.0",
     "import-sort-style-pietile": "~1.2.0",
-    "lint-staged": "~10.1.0",
-    "prettier": "~2.0.0"
+    "lint-staged": "~10.5.0",
+    "prettier": "~2.2.0"
   },
   "workspaces": {
     "packages": [
