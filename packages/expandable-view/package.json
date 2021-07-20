@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.64.1"
   },
   "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/expandable-view",
   "bugs": {
