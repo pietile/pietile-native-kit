@@ -8,15 +8,20 @@
     "prettify": "import-sort --write 'packages/*/src/**/*.js' && prettier --write 'packages/*/src/**/*.js' && eslint 'packages/*/src/**/*.js'"
   },
   "devDependencies": {
-    "@react-native-community/eslint-config": "^1.1.0",
-    "eslint": "^6.5.1",
+    "@types/react-native": "~0.69.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "~8.18.0",
+    "eslint-config-airbnb": "~19.0.0",
+    "eslint-config-prettier": "~8.5.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "~4.6.0",
+    "eslint-plugin-react-native": "~4.0.0",
     "husky": "~4.3.0",
-    "import-sort": "~6.0.0",
-    "import-sort-cli": "~6.0.0",
-    "import-sort-parser-babylon": "~6.0.0",
-    "import-sort-style-pietile": "~1.2.0",
     "lint-staged": "~10.5.0",
-    "prettier": "~2.2.0"
+    "prettier": "~2.7.0"
   },
   "workspaces": {
     "packages": [
@@ -35,7 +40,6 @@
   },
   "lint-staged": {
     "*.js": [
-      "import-sort --write",
       "prettier --write",
       "git add"
     ],

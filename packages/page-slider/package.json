@@ -1,15 +1,22 @@
 {
   "name": "@pietile-native-kit/page-slider",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Simple page slider",
-  "main": "src/index.js",
-  "license": "MIT",
   "keywords": [
     "react-native",
     "slider",
     "swiper",
     "gallery"
   ],
+  "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/page-slider",
+  "bugs": {
+    "url": "https://github.com/pietile/pietile-native-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pietile/pietile-native-kit.git"
+  },
+  "license": "MIT",
   "contributors": [
     {
       "name": "Vladislav Shabanov",
@@ -22,23 +29,14 @@
       "url": "https://github.com/mxck"
     }
   ],
+  "react-native": "src/index.ts",
+  "devDependencies": {
+    "react": "16.13.1",
+    "react-native": "0.69.2",
+    "typescript": "~4.7.0"
+  },
   "peerDependencies": {
     "react": ">= 16.3.0",
     "react-native": ">= 0.54.0"
-  },
-  "dependencies": {
-    "prop-types": "~15.7.0"
-  },
-  "devDependencies": {
-    "react": "16.13.1",
-    "react-native": "0.63.4"
-  },
-  "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/page-slider",
-  "bugs": {
-    "url": "https://github.com/pietile/pietile-native-kit/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pietile/pietile-native-kit.git"
   }
 }

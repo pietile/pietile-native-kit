@@ -12,7 +12,7 @@ module.exports = {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false,
+        inlineRequires: true,
       },
     }),
   },
@@ -21,6 +21,7 @@ module.exports = {
       {},
       {
         get: (target, name) => {
+          console.log(target, name);
           return path.join(__dirname, `node_modules/${name}`);
         },
       },
