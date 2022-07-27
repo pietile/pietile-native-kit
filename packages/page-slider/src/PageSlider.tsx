@@ -8,14 +8,14 @@ import {
   ScrollViewProps,
   StyleProp,
   View,
-  ViewProps,
+  ViewStyle,
 } from 'react-native';
 
 type Props = typeof PageSlider.defaultProps & {
   children?: React.ReactNode;
   contentPaddingVertical?: number;
   selectedPage?: number;
-  style?: StyleProp<ViewProps>;
+  style?: StyleProp<ViewStyle>;
   onCurrentPageChange: (currentPage: number) => void;
   onSelectedPageChange: (selectedPage: number) => void;
 };

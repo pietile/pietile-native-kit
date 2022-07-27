@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Animated, LayoutChangeEvent, StyleProp, StyleSheet, ViewProps } from 'react-native';
+import { Animated, LayoutChangeEvent, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
 interface Props {
   children?: React.ReactNode;
-  contentStyle?: StyleProp<ViewProps>;
+  contentStyle?: StyleProp<ViewStyle>;
   show: boolean;
-  style?: StyleProp<ViewProps>;
+  style?: StyleProp<ViewStyle>;
 }
 
 interface State {

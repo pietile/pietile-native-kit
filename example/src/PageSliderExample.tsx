@@ -1,9 +1,9 @@
 import { PageSlider } from '@pietile-native-kit/page-slider';
 import React, { useState } from 'react';
-import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native';
+import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 
 interface Props {
-  style?: StyleProp<ViewProps>;
+  style?: StyleProp<ViewStyle>;
 }
 
 export function PageSliderExample({ style }: Props) {

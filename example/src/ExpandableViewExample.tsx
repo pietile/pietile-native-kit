@@ -1,9 +1,9 @@
 import { ExpandableView } from '@pietile-native-kit/expandable-view';
 import React, { useState } from 'react';
-import { StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewProps } from 'react-native';
+import { StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewStyle } from 'react-native';
 
 interface Props {
-  style?: StyleProp<ViewProps>;
+  style?: StyleProp<ViewStyle>;
 }
 
 export function ExpandableViewExample({ style }: Props) {

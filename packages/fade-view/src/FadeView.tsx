@@ -1,13 +1,13 @@
 import React, { useReducer, useRef, useState } from 'react';
 import isEqual from 'react-fast-compare';
-import { Animated, Easing, StyleProp, ViewProps } from 'react-native';
+import { Animated, Easing, StyleProp, ViewStyle } from 'react-native';
 import { useIsMounted } from './useIsMounted';
 
 interface Props {
   children?: React.ReactNode;
   data: unknown;
   duration?: number;
-  style?: StyleProp<ViewProps>;
+  style?: StyleProp<ViewStyle>;
 }
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);

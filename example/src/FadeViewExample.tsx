@@ -6,11 +6,11 @@ import {
   Text,
   TouchableWithoutFeedback,
   View,
-  ViewProps,
+  ViewStyle,
 } from 'react-native';
 
 interface Props {
-  style?: StyleProp<ViewProps>;
+  style?: StyleProp<ViewStyle>;
 }
 
 export function FadeViewExample({ style }: Props) {
