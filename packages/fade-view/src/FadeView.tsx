@@ -4,10 +4,10 @@ import { Animated, Easing, StyleProp, ViewProps } from 'react-native';
 import { useIsMounted } from './useIsMounted';
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   data: unknown;
   duration?: number;
-  style: StyleProp<ViewProps>;
+  style?: StyleProp<ViewProps>;
 }
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);

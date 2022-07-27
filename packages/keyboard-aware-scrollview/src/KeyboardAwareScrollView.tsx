@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MutableRefObject, RefCallback } from 'react';
 import {
   Animated,
   DeviceInfo,
@@ -32,7 +32,7 @@ declare module 'react-native' {
 type Props = typeof KeyboardAwareScrollView.defaultProps & {
   contentContainerStyleKeyboardShown?: StyleProp<ViewProps>;
   scrollViewContentContainerStyle?: StyleProp<ViewProps>;
-  scrollViewRef: any;
+  scrollViewRef?: MutableRefObject<ScrollView> | RefCallback<ScrollView>;
   onFocus?: (event: NativeSyntheticEvent<TargetedEvent>) => void;
 } & ScrollViewProps;
 
