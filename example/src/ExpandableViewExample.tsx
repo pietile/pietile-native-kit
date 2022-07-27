@@ -1,8 +1,12 @@
 import { ExpandableView } from '@pietile-native-kit/expandable-view';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, TouchableHighlight, View, ViewProps } from 'react-native';
 
-export function ExpandableViewExample({ style }) {
+interface Props {
+  style?: StyleProp<ViewProps>;
+}
+
+export function ExpandableViewExample({ style }: Props) {
   const [show, setShow] = useState(false);
 
   function onPress() {
@@ -22,10 +26,6 @@ export function ExpandableViewExample({ style }) {
     </View>
   );
 }
-
-ExpandableViewExample.propTypes = {
-  // style: ViewPropTypes.style,
-};
 
 const styles = StyleSheet.create({
   touchable: {

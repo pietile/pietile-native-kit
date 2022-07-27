@@ -1,8 +1,19 @@
 import { FadeView } from '@pietile-native-kit/fade-view';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  ViewProps,
+} from 'react-native';
 
-export function FadeViewExample({ style }) {
+interface Props {
+  style?: StyleProp<ViewProps>;
+}
+
+export function FadeViewExample({ style }: Props) {
   const [cat, setCat] = useState(true);
 
   function onPress() {
@@ -21,10 +32,6 @@ export function FadeViewExample({ style }) {
     </TouchableWithoutFeedback>
   );
 }
-
-FadeViewExample.propTypes = {
-  // style: ViewPropTypes.style,
-};
 
 const styles = StyleSheet.create({
   content: {

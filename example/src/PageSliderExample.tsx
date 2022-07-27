@@ -1,8 +1,12 @@
 import { PageSlider } from '@pietile-native-kit/page-slider';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native';
 
-export function PageSliderExample({ style }) {
+interface Props {
+  style?: StyleProp<ViewProps>;
+}
+
+export function PageSliderExample({ style }: Props) {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPage, setSelectedPage] = useState(0);
 
@@ -50,10 +54,6 @@ export function PageSliderExample({ style }) {
     </View>
   );
 }
-
-PageSliderExample.propTypes = {
-  // style: ViewPropTypes.style,
-};
 
 const styles = StyleSheet.create({
   page: {
