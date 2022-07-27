@@ -36,7 +36,7 @@ playing _FadeOut_.
 import React, { Component } from 'react';
 
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import FadeView from '@pietile-native-kit/fade-view';
+import { FadeView } from '@pietile-native-kit/fade-view';
 
 class FadeViewExample extends Component {
   state = { isCat: true };

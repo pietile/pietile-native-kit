@@ -36,7 +36,7 @@ callback that fires currently active page (for example while the page is being d
 ```jsx
 import React, { useState } from 'react';
 
-import PageSlider from '@pietile-native-kit/page-slider';
+import { PageSlider } from '@pietile-native-kit/page-slider';
 import { StyleSheet, Text, View } from 'react-native';
 
 function PageSliderExample() {

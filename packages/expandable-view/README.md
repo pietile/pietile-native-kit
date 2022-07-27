@@ -32,7 +32,7 @@ Usage is quite simple: put content in `ExpandableView` and control `show` proper
 ```jsx
 import React, { useState } from 'react';
 
-import ExpandableView from '@pietile-native-kit/expandable-view';
+import { ExpandableView } from '@pietile-native-kit/expandable-view';
 import { Text, TouchableHighlight, View } from 'react-native';
 
 function ExpandableViewExample({ style }) {
