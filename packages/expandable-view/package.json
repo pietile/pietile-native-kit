@@ -28,7 +28,12 @@
       "url": "https://github.com/mxck"
     }
   ],
+  "main": "dist/index.js",
   "react-native": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "react": "16.13.1",
     "react-native": "0.69.2",

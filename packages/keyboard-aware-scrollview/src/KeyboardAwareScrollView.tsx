@@ -11,6 +11,7 @@ import {
   NativeSyntheticEvent,
   Platform,
   ScrollView,
+  ScrollViewProps,
   StatusBar,
   StyleProp,
   StyleSheet,
@@ -29,13 +30,11 @@ declare module 'react-native' {
 }
 
 type Props = typeof KeyboardAwareScrollView.defaultProps & {
-  children?: React.ReactNode;
-  contentContainerStyle?: StyleProp<ViewProps>;
   contentContainerStyleKeyboardShown?: StyleProp<ViewProps>;
   scrollViewContentContainerStyle?: StyleProp<ViewProps>;
   scrollViewRef: any;
   onFocus?: (event: NativeSyntheticEvent<TargetedEvent>) => void;
-};
+} & ScrollViewProps;
 
 interface State {
   paddingBottom: Animated.Value;
