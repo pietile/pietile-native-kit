@@ -6,7 +6,7 @@ import { FadeViewExample } from './src/FadeViewExample';
 import { KeyboardAwareScrollViewExample } from './src/KeyboardAwareScrollViewExample';
 import { PageSliderExample } from './src/PageSliderExample';
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <KeyboardAwareScrollView contentInsetAdjustmentBehavior="automatic" style={styles.container}>
       <FadeViewExample style={[styles.example, styles.fadeView]} />

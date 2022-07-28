@@ -13,15 +13,15 @@ interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-export function FadeViewExample({ style }: Props) {
+export function FadeViewExample({ style }: Props): JSX.Element {
   const [cat, setCat] = useState(true);
 
-  function onPress() {
-    setCat(!cat);
-  }
-
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        setCat(!cat);
+      }}
+    >
       <View style={style}>
         <FadeView data={cat}>
           <View style={[styles.content, { backgroundColor: cat ? '#c4c' : '#bfb' }]}>

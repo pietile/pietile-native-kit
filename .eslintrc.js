@@ -4,7 +4,6 @@ module.exports = {
     createDefaultProgram: true,
     project: './packages/**/tsconfig.json',
   },
-  plugins: ['react-native'],
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -55,9 +54,6 @@ module.exports = {
     'prefer-arrow-callback': 'off',
     'prefer-destructuring': 'off',
     'prefer-template': 'off',
-    'react-native/no-color-literals': 'warn',
-    'react-native/no-inline-styles': 'warn',
-    'react-native/no-unused-styles': 'warn',
     'react/default-props-match-prop-types': 'off',
     'react/destructuring-assignment': 'off',
     'react/display-name': 'off',

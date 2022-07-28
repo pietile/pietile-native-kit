@@ -6,16 +6,18 @@ interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-export function ExpandableViewExample({ style }: Props) {
+export function ExpandableViewExample({ style }: Props): JSX.Element {
   const [show, setShow] = useState(false);
-
-  function onPress() {
-    setShow(!show);
-  }
 
   return (
     <View style={style}>
-      <TouchableHighlight style={styles.touchable} underlayColor="#2286c3" onPress={onPress}>
+      <TouchableHighlight
+        style={styles.touchable}
+        underlayColor="#2286c3"
+        onPress={() => {
+          setShow(!show);
+        }}
+      >
         <Text style={styles.text}>Press me</Text>
       </TouchableHighlight>
       <ExpandableView show={show}>

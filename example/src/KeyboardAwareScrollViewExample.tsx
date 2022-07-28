@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, TextInputProps, View } from 'react-native';
 
-function Input({ style, ...props }: TextInputProps) {
+function Input({ style, ...props }: TextInputProps): JSX.Element {
   return <TextInput style={[styles.input, style]} {...props} />;
 }
 
-export function KeyboardAwareScrollViewExample() {
+export function KeyboardAwareScrollViewExample(): JSX.Element {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>KeyboardAwareScrollview</Text>

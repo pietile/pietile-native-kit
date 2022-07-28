@@ -6,7 +6,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-export function PageSliderExample({ style }: Props) {
+export function PageSliderExample({ style }: Props): JSX.Element {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPage, setSelectedPage] = useState(0);
 
@@ -19,16 +19,16 @@ export function PageSliderExample({ style }: Props) {
         onSelectedPageChange={setSelectedPage}
       >
         <View style={[styles.page, { backgroundColor: 'red' }]}>
-          <Text style={styles.text}>{'🐱'}</Text>
+          <Text style={styles.text}>🐱</Text>
         </View>
         <View style={[styles.page, { backgroundColor: 'orange' }]}>
-          <Text style={styles.text}>{'🐶'}</Text>
+          <Text style={styles.text}>🐶</Text>
         </View>
         <View style={[styles.page, { backgroundColor: 'yellow' }]}>
-          <Text style={styles.text}>{'🦖'}</Text>
+          <Text style={styles.text}>🦖</Text>
         </View>
         <View style={[styles.page, { backgroundColor: 'green' }]}>
-          <Text style={styles.text}>{'🐟'}</Text>
+          <Text style={styles.text}>🐟</Text>
         </View>
       </PageSlider>
 
@@ -45,6 +45,7 @@ export function PageSliderExample({ style }: Props) {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
+            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
             setSelectedPage(Math.min(3, selectedPage + 1));
           }}
         >
