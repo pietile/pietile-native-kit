@@ -32,7 +32,7 @@
   "react-native": "src/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf ./dist && tsc"
   },
   "dependencies": {
     "react-fast-compare": "~3.2.0"

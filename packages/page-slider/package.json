@@ -33,7 +33,7 @@
   "react-native": "src/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "rimraf ./dist && tsc"
   },
   "devDependencies": {
     "react": "16.13.1",
