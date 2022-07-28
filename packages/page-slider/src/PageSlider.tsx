@@ -42,14 +42,14 @@ export class PageSlider extends Component<Props> {
     this.initialSelectedPage = this.props.selectedPage;
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     if (Platform.OS === 'ios' && this.props.selectedPage) {
       // Doesn't work in Android
       this.scrollToPage(this.props.selectedPage, false);
     }
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: Props): void {
     const currentPage = this.getCurrentPage();
 
     if (
@@ -115,7 +115,7 @@ export class PageSlider extends Component<Props> {
     this.scrollView?.scrollTo({ y: 0, x: index * pageWidth, animated });
   };
 
-  render() {
+  render(): JSX.Element {
     const { children, mode, style } = this.props;
     const { width } = Dimensions.get('screen');
 

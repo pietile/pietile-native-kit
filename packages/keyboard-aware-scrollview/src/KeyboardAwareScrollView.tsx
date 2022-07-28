@@ -82,7 +82,7 @@ export class KeyboardAwareScrollView extends Component<Props, State> {
     };
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.mounted = true;
 
     if (Platform.OS === 'ios') {
@@ -99,7 +99,7 @@ export class KeyboardAwareScrollView extends Component<Props, State> {
     ];
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     this.mounted = false;
 
     if (this.scrollToFocusedInputTimeout) {
@@ -294,7 +294,7 @@ export class KeyboardAwareScrollView extends Component<Props, State> {
     }, ANIMATION_DURATION);
   };
 
-  render() {
+  render(): JSX.Element {
     const {
       contentContainerStyle,
       contentContainerStyleKeyboardShown,

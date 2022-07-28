@@ -50,7 +50,7 @@ export class ExpandableView extends Component<Props, State> {
     }
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: Props): void {
     if (!prevProps.show && this.props.show) {
       if (this.state.state === STATE.COLLAPSING) {
         // Already in transition state. Interrupt current animation and go opposite way.
@@ -66,7 +66,7 @@ export class ExpandableView extends Component<Props, State> {
     }
   }
 
-  private onLayout = (e: LayoutChangeEvent) => {
+  private onLayout = (e: LayoutChangeEvent): void => {
     // Save full element height
     this.fullHeight = e.nativeEvent.layout.height;
 
@@ -85,7 +85,7 @@ export class ExpandableView extends Component<Props, State> {
   };
 
   // Start collapsing
-  private collapse = () => {
+  private collapse = (): void => {
     if (this.state.state === STATE.COLLAPSED || this.state.state === STATE.COLLAPSING) {
       // Nothing to do
       return;
@@ -133,7 +133,7 @@ export class ExpandableView extends Component<Props, State> {
   };
 
   // Start expanding
-  private expand = () => {
+  private expand = (): void => {
     if (this.state.state === STATE.EXPANDED || this.state.state === STATE.EXPANDING) {
       // Nothing to do
       return;
@@ -180,7 +180,7 @@ export class ExpandableView extends Component<Props, State> {
     });
   };
 
-  render() {
+  render(): JSX.Element | null {
     const { children, contentStyle, style } = this.props;
     const { height, opacity, state } = this.state;
 
