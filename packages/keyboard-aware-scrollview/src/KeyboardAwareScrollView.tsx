@@ -56,8 +56,8 @@ const IPHONE_X_INSET = {
  * Based on react-native KeyboardAvoidingView and react-native-keyboard-aware-scroll-view.
  */
 export class KeyboardAwareScrollView extends Component<Props, State> {
-  static defaultProps: {
-    extraHeight: 24;
+  static defaultProps = {
+    extraHeight: 24,
   };
 
   private subscriptions: EmitterSubscription[] = [];
