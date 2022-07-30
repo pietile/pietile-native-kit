@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "prettify": "prettier --write 'packages/*/src/**/*.js' && eslint 'packages/*/src/**/*.js'"
+    "prettify": "prettier --write 'packages/*/src/**/*.{ts,tsx}' && eslint 'packages/*/src/**/*.{ts,tsx}'"
   },
   "devDependencies": {
     "@types/react-native": "~0.69.0",
