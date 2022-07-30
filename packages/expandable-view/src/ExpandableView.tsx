@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { Animated, LayoutChangeEvent, StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import {
+  Animated,
+  LayoutChangeEvent,
+  StyleProp,
+  StyleSheet,
+  ViewProps,
+  ViewStyle,
+} from 'react-native';
 
-interface Props {
-  children?: React.ReactNode;
+type Props = ViewProps & {
   contentStyle?: StyleProp<ViewStyle>;
   show: boolean;
-  style?: StyleProp<ViewStyle>;
-}
+};
 
 interface State {
   height: Animated.Value | 'auto';
@@ -181,7 +186,7 @@ export class ExpandableView extends Component<Props, State> {
   };
 
   render(): JSX.Element | null {
-    const { children, contentStyle, style } = this.props;
+    const { children, contentStyle, style, ...props } = this.props;
     const { height, opacity, state } = this.state;
 
     if (state === STATE.COLLAPSED) {
@@ -189,7 +194,7 @@ export class ExpandableView extends Component<Props, State> {
     }
 
     return (
-      <Animated.View style={[styles.container, style, { height }]}>
+      <Animated.View style={[styles.container, style, { height }]} {...props}>
         <Animated.View
           style={[state !== STATE.EXPANDED && styles.offscreen, { opacity }, contentStyle]}
           onLayout={this.onLayout}

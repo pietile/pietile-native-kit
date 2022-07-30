@@ -1,18 +1,16 @@
 import React, { useReducer, useRef, useState } from 'react';
 import isEqual from 'react-fast-compare';
-import { Animated, Easing, StyleProp, ViewStyle } from 'react-native';
+import { Animated, Easing, ViewProps } from 'react-native';
 import { useIsMounted } from './useIsMounted';
 
-interface Props {
-  children?: React.ReactNode;
+type Props = ViewProps & {
   data: unknown;
   duration?: number;
-  style?: StyleProp<ViewStyle>;
-}
+};
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 
-export function FadeView({ children, data, duration = 150, style }: Props): JSX.Element {
+export function FadeView({ children, data, duration = 150, style, ...props }: Props): JSX.Element {
   const isMounted = useIsMounted();
 
   const prevData = useRef(data);
@@ -50,5 +48,9 @@ export function FadeView({ children, data, duration = 150, style }: Props): JSX.
     currentChildren.current = children;
   }
 
-  return <Animated.View style={[style, { opacity }]}>{currentChildren.current}</Animated.View>;
+  return (
+    <Animated.View style={[style, { opacity }]} {...props}>
+      {currentChildren.current}
+    </Animated.View>
+  );
 }
