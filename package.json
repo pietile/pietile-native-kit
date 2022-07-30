@@ -11,7 +11,7 @@
     "@types/react-native": "~0.69.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "~8.18.0",
+    "eslint": "~8.20.0",
     "eslint-config-airbnb": "~19.0.0",
     "eslint-config-prettier": "~8.5.0",
     "eslint-plugin-import": "^2.18.0",

@@ -15,7 +15,7 @@
     "@pietile-native-kit/keyboard-aware-scrollview": "*",
     "@pietile-native-kit/page-slider": "*",
     "react": "18.0.0",
-    "react-native": "0.69.2"
+    "react-native": "0.69.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
