@@ -1,12 +1,21 @@
 {
   "name": "@pietile-native-kit/fade-view",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "View that changes content gracefully",
   "keywords": [
     "react-native",
     "fadein",
     "fadeout"
   ],
+  "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/fade-view",
+  "bugs": {
+    "url": "https://github.com/pietile/pietile-native-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pietile/pietile-native-kit.git"
+  },
+  "license": "MIT",
   "contributors": [
     {
       "name": "Vladislav Shabanov",
@@ -19,26 +28,22 @@
       "url": "https://github.com/mxck"
     }
   ],
-  "main": "src/index.js",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": ">= 16.8.0",
-    "react-native": ">= 0.59.0"
+  "main": "dist/index.js",
+  "react-native": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf ./dist && tsc"
   },
   "dependencies": {
-    "prop-types": "~15.7.0",
     "react-fast-compare": "~3.2.0"
   },
   "devDependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.69.3",
+    "typescript": "~4.7.0"
   },
-  "homepage": "https://github.com/pietile/pietile-native-kit/tree/master/packages/fade-view",
-  "bugs": {
-    "url": "https://github.com/pietile/pietile-native-kit/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pietile/pietile-native-kit.git"
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-native": ">= 0.59.0"
   }
 }

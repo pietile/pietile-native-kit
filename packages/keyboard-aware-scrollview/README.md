@@ -49,7 +49,7 @@ Everything else is passing to underlying [ScrollView](https://facebook.github.io
 import React from 'react';
 
 import { TextInput, Text } from 'react-native';
-import KeyboardAwareScrollView from '@pietile-native-kit/keyboard-aware-scrollview';
+import { KeyboardAwareScrollView } from '@pietile-native-kit/keyboard-aware-scrollview';
 
 function KeyboardAwareScrollViewExample() {
   return (
@@ -76,7 +76,7 @@ const ScrollComponent = React.forwardRef((forwardedProps, ref) => (
 ));
 
 function KeyboardAwareFlatList(props) {
-  const renderScrollComponent = useCallback(scrollProps => {
+  const renderScrollComponent = useCallback((scrollProps) => {
     return <ScrollComponent {...scrollProps} />;
   }, []);
 

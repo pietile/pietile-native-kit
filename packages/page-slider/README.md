@@ -3,7 +3,7 @@
 [![npm version](https://badgen.net/npm/v/@pietile-native-kit/page-slider?color=56C838)](https://www.npmjs.com/package/@pietile-native-kit/page-slider)
 [![install size](https://badgen.net/packagephobia/install/@pietile-native-kit/page-slider)](https://packagephobia.now.sh/result?p=@pietile-native-kit/page-slider)
 
-Helps to implement swipeable pages. `PageSlider` is controlled with `selectedPage` prop compnent and
+Helps to implement swipeable pages. `PageSlider` is controlled with `selectedPage` prop component and
 can work in two modes: `page` when page occupies whole width of the screen and `card` when
 adjacent pages are visible at sides.
 
@@ -36,7 +36,7 @@ callback that fires currently active page (for example while the page is being d
 ```jsx
 import React, { useState } from 'react';
 
-import PageSlider from '@pietile-native-kit/page-slider';
+import { PageSlider } from '@pietile-native-kit/page-slider';
 import { StyleSheet, Text, View } from 'react-native';
 
 function PageSliderExample() {
